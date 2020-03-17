@@ -52,7 +52,7 @@ def plot_model(df, col, backward_fit=0, forward_look=5, plotlimit=False, show_lo
     plt.subplot(211)
     plt.title(col+' model calibrated up to today ' + str(backward_fit))
     plt.plot(x, y, 'ko', label="Original Data")
-    # plt.plot(list(df.index[x.astype(int)-1]), y, 'ko', label="Original Data")
+
     if show_exp:
         popt_exp, pcov_exp = curve_fit(func_exp, x_fit, y_fit, method='lm', maxfev=10000)
         y_pred_exp = func_exp(x_pred, *popt_exp)
