@@ -48,28 +48,28 @@ def plot_model(df, col, backward_fit=0, forward_look=5, plotlimit=False, show_lo
     y_fit = y[-backward_fit:max_fit + 1]
     x_pred = np.linspace(1, ndays + forward_look, (ndays + forward_look))
 
-    popt_exp, pcov_exp = curve_fit(func_exp, x_fit, y_fit, method='lm', maxfev=10000)
-    popt_pol, pcov_pol = curve_fit(func_pol, x_fit, y_fit)
-    popt_log, pcov_log = curve_fit(func_log, x_fit, y_fit,  bounds=([0., 0., 0.], [np.inf, np.inf, np.inf]))
-    y_pred_exp = func_exp(x_pred, *popt_exp)
-    y_pred_pol = func_pol(x_pred, *popt_pol)
-    y_pred_log = func_log(x_pred, *popt_log)
-
     plt.figure(figsize=(12, 12))
     plt.subplot(211)
-    plt.title(col)
+    plt.title(col+' model calibrated up to today ' + str(backward_fit))
     plt.plot(x, y, 'ko', label="Original Data")
+    # plt.plot(list(df.index[x.astype(int)-1]), y, 'ko', label="Original Data")
     if show_exp:
+        popt_exp, pcov_exp = curve_fit(func_exp, x_fit, y_fit, method='lm', maxfev=10000)
+        y_pred_exp = func_exp(x_pred, *popt_exp)
+
         exp_rmse = np.sqrt(np.mean((y_fit - func_exp(x_fit, *popt_exp))**2))
-        plt.plot(x_pred, y_pred_exp, 'r.', label="exp model rmse %f.4"%exp_rmse)
+        plt.plot(x_pred, y_pred_exp, 'r-', label="exp model rmse %i"%int(exp_rmse))
         perr = np.sqrt(np.diag(pcov_exp))
         popt_exp_up = popt_exp + perr
         popt_exp_down = popt_exp - perr
         plt.fill_between(x_pred, func_exp(x_pred, *popt_exp_down), func_exp(x_pred, *popt_exp_up), alpha=0.2)
 
     if show_pol:
+        popt_pol, pcov_pol = curve_fit(func_pol, x_fit, y_fit)
+        y_pred_pol = func_pol(x_pred, *popt_pol)
+
         pol_rmse = np.sqrt(np.mean((y_fit - func_pol(x_fit, *popt_pol)) ** 2))
-        plt.plot(x_pred, y_pred_pol, 'b-', label="pol model rmse %f.4"%pol_rmse)
+        plt.plot(x_pred, y_pred_pol, 'b-', label="pol model rmse %i"%int(pol_rmse))
         perr = np.sqrt(np.diag(pcov_pol))
         popt_pol_up = popt_pol + perr
         popt_pol_down = popt_pol - perr
@@ -80,8 +80,11 @@ def plot_model(df, col, backward_fit=0, forward_look=5, plotlimit=False, show_lo
             plt.plot(x_pred, pol_limit, 'y--', label='pol limit: %i' % (pollimit))
 
     if show_log:
+        popt_log, pcov_log = curve_fit(func_log, x_fit, y_fit, bounds=([0., 0., 0.], [np.inf, np.inf, np.inf]))
+        y_pred_log = func_log(x_pred, *popt_log)
+
         log_rmse = np.sqrt(np.mean((y_fit - func_log(x_fit, *popt_log)) ** 2))
-        plt.plot(x_pred, y_pred_log, 'g-', label="log model rmse %f.4" % log_rmse)
+        plt.plot(x_pred, y_pred_log, 'g-', label="log model rmse %i" % int(log_rmse))
         perr = np.sqrt(np.diag(pcov_log))
         popt_log_up = popt_log + perr
         popt_log_down = popt_log - perr
@@ -111,19 +114,16 @@ def plot_model(df, col, backward_fit=0, forward_look=5, plotlimit=False, show_lo
     plt.subplot(212)
     plt.title('log-linear model fit R2: %f' % r_sq)
     plt.plot(x, np.log(df[col].values), 'b-*')
-    plt.plot(x, model.predict(x.reshape(-1, 1)), 'r--')
+    plt.plot(x_pred, model.predict(x_pred.reshape(-1, 1)), 'r--')
     plt.show()
 
-    if ~np.isinf(pcov_log).max():
-        # print('log params ', popt_log)
+    if show_log:
         next_day_prediction_log = func_log(x[-1] + 1, *popt_log)
         print('next day prediction for log model: ', int(next_day_prediction_log))
-    if ~np.isinf(pcov_exp).max():
-        # print('exp params ', popt_exp)
+    if show_exp:
         next_day_prediction_exp = func_exp(x[-1] + 1, *popt_exp)
         print('next day prediction for exp model: ', int(next_day_prediction_exp))
-    if ~np.isinf(pcov_pol).max():
-        # print('pol params ', popt_pol)
+    if show_pol:
         next_day_prediction_pol = func_pol(x[-1] + 1, *popt_pol)
         print('next day prediction for pol model: ', int(next_day_prediction_pol))
 
