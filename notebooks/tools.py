@@ -39,18 +39,19 @@ def add_extra_features(df_orig):
         df['data'] = pd.to_datetime(df['data']).dt.strftime('%m/%d/%Y')
     return df.set_index('data')
 
-def plot_model(df, col, backward_fit=0, forward_look=5, plotlimit=False, show_log=True, show_exp=True, show_pol=False):
+def plot_model(df, col, backward_fit=0, forward_look=5, stdev=1,
+               plotlimit=False, show_log=True, show_exp=True, show_pol=False):
     y = df[col].values
     ndays = df.shape[0]
     x = np.linspace(1, ndays, ndays)
     max_fit = len(x)
-    x_fit = x[-backward_fit:max_fit + 1]
-    y_fit = y[-backward_fit:max_fit + 1]
+    x_fit = x[:max_fit-backward_fit]
+    y_fit = y[:max_fit-backward_fit]
     x_pred = np.linspace(1, ndays + forward_look, (ndays + forward_look))
 
     plt.figure(figsize=(12, 12))
     plt.subplot(211)
-    plt.title(col+' model calibrated up to today ' + str(backward_fit))
+    plt.title(col+' model calibrated up to today -' + str(backward_fit) + ' days')
     plt.plot(x, y, 'ko', label="Original Data")
 
     if show_exp:
@@ -60,8 +61,8 @@ def plot_model(df, col, backward_fit=0, forward_look=5, plotlimit=False, show_lo
         exp_rmse = np.sqrt(np.mean((y_fit - func_exp(x_fit, *popt_exp))**2))
         plt.plot(x_pred, y_pred_exp, 'r-', label="exp model rmse %i"%int(exp_rmse))
         perr = np.sqrt(np.diag(pcov_exp))
-        popt_exp_up = popt_exp + perr
-        popt_exp_down = popt_exp - perr
+        popt_exp_up = popt_exp + perr * stdev
+        popt_exp_down = popt_exp - perr * stdev
         plt.fill_between(x_pred, func_exp(x_pred, *popt_exp_down), func_exp(x_pred, *popt_exp_up), alpha=0.2)
 
     if show_pol:
@@ -71,8 +72,8 @@ def plot_model(df, col, backward_fit=0, forward_look=5, plotlimit=False, show_lo
         pol_rmse = np.sqrt(np.mean((y_fit - func_pol(x_fit, *popt_pol)) ** 2))
         plt.plot(x_pred, y_pred_pol, 'b-', label="pol model rmse %i"%int(pol_rmse))
         perr = np.sqrt(np.diag(pcov_pol))
-        popt_pol_up = popt_pol + perr
-        popt_pol_down = popt_pol - perr
+        popt_pol_up = popt_pol + perr * stdev
+        popt_pol_down = popt_pol - perr * stdev
         plt.fill_between(x_pred, func_pol(x_pred, *popt_pol_down), func_pol(x_pred, *popt_pol_up), alpha=0.2)
         if plotlimit:
             pollimit = func_pol(50, *popt_pol)
@@ -86,8 +87,8 @@ def plot_model(df, col, backward_fit=0, forward_look=5, plotlimit=False, show_lo
         log_rmse = np.sqrt(np.mean((y_fit - func_log(x_fit, *popt_log)) ** 2))
         plt.plot(x_pred, y_pred_log, 'g-', label="log model rmse %i" % int(log_rmse))
         perr = np.sqrt(np.diag(pcov_log))
-        popt_log_up = popt_log + perr
-        popt_log_down = popt_log - perr
+        popt_log_up = popt_log + perr * stdev
+        popt_log_down = popt_log - perr * stdev
         plt.fill_between(x_pred, func_log(x_pred, *popt_log_down), func_log(x_pred, *popt_log_up), alpha=0.2)
         plt.fill_between(x_pred, func_log(x_pred, *popt_log_down), func_log(x_pred, *popt_log_up), alpha=0.2)
         if plotlimit:
@@ -105,7 +106,7 @@ def plot_model(df, col, backward_fit=0, forward_look=5, plotlimit=False, show_lo
         plt.plot(x, df['growth_factor'], label='growth factor', alpha=.3)
     if '%delta_' + col in df.columns:
         plt.bar(x, df['%delta_' + col], color='m', label='daily % increase', alpha=.15)
-        plt.legend(loc='center')
+        plt.legend(loc='lower left')
 
     model = LinearRegression()
     model.fit(x_fit.reshape(-1, 1), np.log(y_fit))
