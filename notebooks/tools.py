@@ -12,11 +12,17 @@ def func_exp(x, a, b, c):
 def func_pol(x, a, b, c, d):
     return (a * x ** 3) + (b * x ** 2) + (c * x) + d
 
-#def func_log(x, a, b, c, d):
+# def func_log(x, a, b, c, d):
 #    return a / (1. + np.exp(-c * (x - d))) + b
 
 def func_log(x, r, K, P0): #Velhurst
     return (K*P0*np.exp(r*x)) / (K + P0*(np.exp(x*r)-1))
+
+def dfunc(x , func, *popt_log):
+    # return x*r*P0*(1-P0/K)
+    yp1 = func(x+0.01 , *popt_log)
+    ym1 = func(x-0.01, *popt_log)
+    return (yp1-ym1)/0.02
 
 def func_log_ext(x_in, a, b, c, d, f):
     return d + (a - d) / np.power(1.0 + np.power(x_in / c, b), f)
@@ -40,7 +46,8 @@ def add_extra_features(df_orig):
     return df.set_index('data')
 
 def plot_model(df, col, backward_fit=0, forward_look=5, stdev=1,
-               plotlimit=False, show_log=True, show_exp=True, show_pol=False):
+               plotlimit=False, plotdifferential=True, plotloglinear=True,
+               show_log=True, show_exp=True, show_pol=False):
     y = df[col].values
     ndays = df.shape[0]
     x = np.linspace(1, ndays, ndays)
@@ -50,7 +57,8 @@ def plot_model(df, col, backward_fit=0, forward_look=5, stdev=1,
     x_pred = np.linspace(1, ndays + forward_look, (ndays + forward_look))
 
     plt.figure(figsize=(12, 12))
-    plt.subplot(211)
+    plt.subplot(311)
+
     plt.title(col+' model calibrated up to today -' + str(backward_fit) + ' days')
     plt.plot(x, y, 'ko', label="Original Data")
 
@@ -91,32 +99,42 @@ def plot_model(df, col, backward_fit=0, forward_look=5, stdev=1,
         popt_log_down = popt_log - perr * stdev
         plt.fill_between(x_pred, func_log(x_pred, *popt_log_down), func_log(x_pred, *popt_log_up), alpha=0.2)
         plt.fill_between(x_pred, func_log(x_pred, *popt_log_down), func_log(x_pred, *popt_log_up), alpha=0.2)
+
         if plotlimit:
             loglimit = func_log(50, *popt_log)
             log_limit = np.array([loglimit for i in range(len(x_pred))])
             plt.plot(x_pred, log_limit, 'g--', label='log limit: %i' % (loglimit))
+            plt.ylim(0, loglimit*1.2)
+        plt.legend(loc='upper left')
 
-    plt.legend(loc='upper left')
-    plt.grid()
-    plt.twinx()
+    plt.subplot(312)
+    if plotdifferential:
+        plt.subplot(312)
+        plt.plot(x_pred, dfunc(x_pred, func_log, *popt_log), 'g-', label='log peak estimation')
+        # plt.plot(x_pred, dfunc(x_pred, func_pol, *popt_pol), 'y-', label='log peak estimation')
+        plt.legend(loc='lower left')
     if 'growth_factor' in df.columns:
+        plt.grid()
+        plt.twinx()
         growth_threshold_line = np.array([1 for i in range(len(x_pred))])
         plt.plot(x_pred, growth_threshold_line, 'b--', alpha=0.1, label='growth factor threshold')
         plt.fill_between(x_pred, 0, growth_threshold_line, alpha=0.1)
         plt.plot(x, df['growth_factor'], label='growth factor', alpha=.3)
     if '%delta_' + col in df.columns:
         plt.bar(x, df['%delta_' + col], color='m', label='daily % increase', alpha=.15)
-        plt.legend(loc='lower left')
+        #plt.legend(loc='lower left')
+    plt.legend(loc='upper left')
 
-    model = LinearRegression()
-    model.fit(x_fit.reshape(-1, 1), np.log(y_fit))
-    r_sq = model.score(x_fit.reshape(-1, 1), np.log(y_fit))
+    if plotloglinear:
+        model = LinearRegression()
+        model.fit(x_fit.reshape(-1, 1), np.log(y_fit))
+        r_sq = model.score(x_fit.reshape(-1, 1), np.log(y_fit))
 
-    plt.subplot(212)
-    plt.title('log-linear model fit R2: %f' % r_sq)
-    plt.plot(x, np.log(df[col].values), 'b-*')
-    plt.plot(x_pred, model.predict(x_pred.reshape(-1, 1)), 'r--')
-    plt.show()
+        plt.subplot(313)
+        plt.title('log-linear model fit R2: %f' % r_sq)
+        plt.plot(x, np.log(df[col].values), 'b-*')
+        plt.plot(x_pred, model.predict(x_pred.reshape(-1, 1)), 'r--')
+        plt.show()
 
     if show_log:
         next_day_prediction_log = func_log(x[-1] + 1, *popt_log)
