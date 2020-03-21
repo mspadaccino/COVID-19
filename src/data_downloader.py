@@ -4,36 +4,43 @@ import pathlib
 import numpy as np
 import pandas as pd
 import requests
-
+import os
+import git
+import shutil
+import tempfile
 
 DATA_REPOS = {
     "world": {
-        "url": "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master",
+        "url": "https://github.com/CSSEGISandData/COVID-19",
         "streams": {
-            "deaths": "{url}/csse_covid_19_data/csse_covid_19_time_series/time_series_19-covid-Deaths.csv"
+            "deaths": "/csse_covid_19_data/csse_covid_19_time_series/time_series_19-covid-Deaths.csv",
+            "confirmed": "/csse_covid_19_data/csse_covid_19_time_series/time_series_19-covid-Confirmed.csv",
+            "recovered": "/csse_covid_19_data/csse_covid_19_time_series/time_series_19-covid-Recovered.csv"
         },
     },
     "italy": {
-        "url": "https://raw.githubusercontent.com/pcm-dpc/COVID-19/master",
+        "url": 'https://github.com/pcm-dpc/COVID-19',
         "streams": {
-            "andamento-nazionale": "{url}/dati-andamento-nazionale/dpc-covid19-ita-andamento-nazionale.csv",
-            "regioni": "{url}/dati-regioni/dpc-covid19-ita-regioni.csv",
-            "province": "{url}/dati-province/dpc-covid19-ita-province.csv",
+            "andamento-nazionale": "/dati-andamento-nazionale/dpc-covid19-ita-andamento-nazionale.csv",
+            "regioni": "/dati-regioni/dpc-covid19-ita-regioni.csv",
+            "province": "/dati-province/dpc-covid19-ita-province.csv",
         },
     },
 }
 
 
-def download(url, path=".", repo="italy"):
-    repo = DATA_REPOS[repo]
-    base_url = repo["url"]
-    stream_url = repo["streams"].get(url, url).format(url=base_url)
-    root_path = pathlib.Path(path)
-    download_path = root_path / stream_url.rpartition("/")[2]
-    with requests.get(stream_url) as resp:
-        with open(download_path, "wb") as fp:
-            fp.write(resp.content)
-    return str(download_path)
+
+def download_from_repo(url, filename, dest):
+    # Create temporary dir
+    t = tempfile.mkdtemp()
+    # Clone into temporary dir
+    git.Repo.clone_from(url, t, branch='master', depth=1)
+    # Copy desired file from temporary dir
+
+    shutil.move(t + filename, os.path.join(dest, filename.split('/')[-1]))
+    # Remove temporary dir
+    shutil.rmtree(t)
+    return None
 
 
 def reformat(path):
