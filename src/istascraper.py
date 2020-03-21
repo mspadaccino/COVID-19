@@ -19,10 +19,10 @@ for i in range(0, page_count):
         arr.append(item['node'])
     time.sleep(2)  # insurence to not reach a time limit
 print(end_cursor)  # save this to restart parsing with the next page
-with open('posts.json', 'w') as outfile:
+with open('../data/posts.json', 'w') as outfile:
     json.dump(arr, outfile)  # save to json
 
-with open('posts.json', 'r') as f:
+with open('../data/posts.json', 'r') as f:
     arr = json.loads(f.read())  # load json data from previous step
 locations = []
 for item in arr:
