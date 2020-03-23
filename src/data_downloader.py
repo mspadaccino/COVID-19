@@ -1,13 +1,20 @@
-### taken from https://github.com/alexamici/covid-19-notebooks
-import pathlib
-
 import numpy as np
 import pandas as pd
-import requests
+import stat
 import os
 import git
 import shutil
-import tempfile
+from gitinfo import get_git_info
+
+def rmtree(top):
+    for root, dirs, files in os.walk(top, topdown=False):
+        for name in files:
+            filename = os.path.join(root, name)
+            os.chmod(filename, stat.S_IWUSR)
+            os.remove(filename)
+        for name in dirs:
+            os.rmdir(os.path.join(root, name))
+    os.rmdir(top)
 
 DATA_REPOS = {
     "world": {
@@ -32,14 +39,17 @@ DATA_REPOS = {
 
 def download_from_repo(url, filename, dest):
     # Create temporary dir
-    t = tempfile.mkdtemp()
+    t = os.path.join(dest,'temp')
+    os.makedirs(t, exist_ok=True)
+    os.chmod(t, stat.S_IWUSR)
     # Clone into temporary dir
-    git.Repo.clone_from(url, t, branch='master', depth=1)
+    repo = git.Repo.clone_from(url, t, branch='master', depth=1)
     # Copy desired file from temporary dir
-
+    info = get_git_info(t)
+    print('last commit ', info['author_date'])
     shutil.move(t + filename, os.path.join(dest, filename.split('/')[-1]))
     # Remove temporary dir
-    shutil.rmtree(t)
+    rmtree(t)
     return None
 
 
