@@ -47,7 +47,7 @@ def add_extra_features(df_orig):
 
 def plot_model(df, col, backward_fit=0, forward_look=5, stdev=1,
                plotlimit=False, plotdifferential=True, plotloglinear=True,
-               show_log=True, show_exp=True, show_pol=False):
+               show_log=True, show_exp=True, show_pol=False, label=''):
     y = df[col].values
     ndays = df.shape[0]
     x = np.linspace(1, ndays, ndays)
@@ -59,7 +59,7 @@ def plot_model(df, col, backward_fit=0, forward_look=5, stdev=1,
     plt.figure(figsize=(12, 12))
     plt.subplot(311)
 
-    plt.title(col+' model calibrated up to today -' + str(backward_fit) + ' days')
+    plt.title(label+' '+col+' model calibrated up to today -' + str(backward_fit) + ' days')
     plt.plot(x, y, 'ko', label="Original Data")
 
     if show_exp:
