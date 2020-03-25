@@ -19,35 +19,40 @@ def rmtree(top):
 DATA_REPOS = {
     "world": {
         "url": "https://github.com/CSSEGISandData/COVID-19",
-        "streams": {
-            "deaths": "/csse_covid_19_data/csse_covid_19_time_series/time_series_19-covid-Deaths.csv",
-            "confirmed": "/csse_covid_19_data/csse_covid_19_time_series/time_series_19-covid-Confirmed.csv",
-            "recovered": "/csse_covid_19_data/csse_covid_19_time_series/time_series_19-covid-Recovered.csv"
-        },
+        "streams": ["/csse_covid_19_data/csse_covid_19_time_series/time_series_19-covid-Deaths.csv",
+                    "/csse_covid_19_data/csse_covid_19_time_series/time_series_19-covid-Confirmed.csv",
+                    "/csse_covid_19_data/csse_covid_19_time_series/time_series_19-covid-Recovered.csv"]
     },
     "italy": {
         "url": 'https://github.com/pcm-dpc/COVID-19',
-        "streams": {
-            "andamento-nazionale": "/dati-andamento-nazionale/dpc-covid19-ita-andamento-nazionale.csv",
-            "regioni": "/dati-regioni/dpc-covid19-ita-regioni.csv",
-            "province": "/dati-province/dpc-covid19-ita-province.csv",
-        },
+        "streams": ["/dati-andamento-nazionale/dpc-covid19-ita-andamento-nazionale.csv",
+                    "/dati-regioni/dpc-covid19-ita-regioni.csv",
+                    "/dati-province/dpc-covid19-ita-province.csv"]
     },
 }
 
 
 
-def download_from_repo(url, filename, dest):
+def download_from_repo(url, filenames, dest):
     # Create temporary dir
+    print(filenames)
     t = os.path.join(dest,'temp')
+    if os.path.exists(t):
+        rmtree(t)
     os.makedirs(t, exist_ok=True)
     os.chmod(t, stat.S_IWUSR)
     # Clone into temporary dir
     repo = git.Repo.clone_from(url, t, branch='master', depth=1)
     # Copy desired file from temporary dir
-    info = get_git_info(t)
-    print('last commit ', info['author_date'])
-    shutil.move(t + filename, os.path.join(dest, filename.split('/')[-1]))
+    try:
+        info = get_git_info(t)
+        print('last commit ', info['author_date'])
+    except Exception as e:
+        print('could not retrieve repo infos, ',e)
+
+    for filename in filenames:
+        print(t +'/'+ filename)
+        shutil.move(t +'/'+ filename, os.path.join(dest, filename.split('/')[-1]))
     # Remove temporary dir
     rmtree(t)
     return None
