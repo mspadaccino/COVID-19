@@ -19,9 +19,9 @@ def rmtree(top):
 DATA_REPOS = {
     "world": {
         "url": "https://github.com/CSSEGISandData/COVID-19",
-        "streams": ["/csse_covid_19_data/csse_covid_19_time_series/time_series_19-covid-Deaths.csv",
-                    "/csse_covid_19_data/csse_covid_19_time_series/time_series_19-covid-Confirmed.csv",
-                    "/csse_covid_19_data/csse_covid_19_time_series/time_series_19-covid-Recovered.csv"]
+        "streams": ["/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_deaths_global.csv",
+                    "/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv",
+                    "/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_recovered_global.csv"]
     },
     "italy": {
         "url": 'https://github.com/pcm-dpc/COVID-19',
@@ -35,7 +35,7 @@ DATA_REPOS = {
 
 def download_from_repo(url, filenames, dest):
     # Create temporary dir
-    print(filenames)
+    # print(filenames)
     t = os.path.join(dest,'temp')
     if os.path.exists(t):
         rmtree(t)
@@ -51,7 +51,7 @@ def download_from_repo(url, filenames, dest):
         print('could not retrieve repo infos, ',e)
 
     for filename in filenames:
-        print(t +'/'+ filename)
+        # print(t +'/'+ filename)
         shutil.move(t +'/'+ filename, os.path.join(dest, filename.split('/')[-1]))
     # Remove temporary dir
     rmtree(t)
