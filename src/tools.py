@@ -111,7 +111,7 @@ def plot_model(df, col, backward_fit=0, forward_look=5, stdev=1,
     if plotdifferential:
         plt.subplot(312)
         plt.plot(x_pred, dfunc(x_pred, func_log, *popt_log), 'g-', label='log peak estimation')
-        # plt.plot(x_pred, dfunc(x_pred, func_pol, *popt_pol), 'y-', label='log peak estimation')
+        plt.bar(x_fit, np.diff(y_fit, prepend=0), alpha=0.4)
         plt.legend(loc='lower left')
     if 'growth_factor' in df.columns:
         plt.grid()
