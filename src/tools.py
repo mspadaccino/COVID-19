@@ -185,3 +185,5 @@ def plot_model(df, col, backward_fit=-1, backward_fit_gomp=-1, forward_look=5, s
         print('next day prediction for pol model: ', int(next_day_prediction_pol))
 
     print(df[col].tail())
+
+
