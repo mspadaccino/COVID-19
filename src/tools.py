@@ -13,8 +13,10 @@ def func_exp(x, a, b, c):
 def func_pol(x, a, b, c, d):
     return (a * x ** 3) + (b * x ** 2) + (c * x) + d
 
-# def func_log(x, a, b, c, d):
-#    return a / (1. + np.exp(-c * (x - d))) + b
+def func_dgomp(x, A, u, d, v, y0):
+    yp1 = func_gomp(x+0.01 , A, u, d, v, y0)
+    ym1 = func_gomp(x-0.01, A, u, d, v, y0)
+    return (yp1-ym1)/0.02
 
 def func_gomp(x, A, u, d, v, y0):
         """Gompertz growth model.
@@ -55,7 +57,7 @@ def add_extra_features(df_orig):
 
 def plot_model(df, col, backward_fit=-1, backward_fit_gomp=-1, forward_look=5, stdev=1,
                plotlimit=False, plotdifferential=True, plotloglinear=True,
-               show_log=True, show_exp=False, show_gomp=True, show_pol=False, label=''):
+               show_log=True, show_exp=False, show_gomp=True, show_dgomp=False, show_pol=False, label=''):
     y = df[col].values
     ndays = df.shape[0]
     x = np.linspace(1, ndays, ndays)
@@ -138,8 +140,22 @@ def plot_model(df, col, backward_fit=-1, backward_fit_gomp=-1, forward_look=5, s
             plt.plot(x_pred, gomp_limit, 'c--', label='gompertz limit: %i' % (gomplimit))
             #plt.ylim(0, gomplimit*1.2)
         plt.legend(loc='upper left')
-        #print(popt_gomp)
 
+    if show_dgomp:
+        sig = inspect.signature(func_dgomp)
+        n_params = len(sig.parameters.items()) - 1
+        popt_dgomp, pcov_dgomp = curve_fit(func_gomp, x_fit_gomp, y_fit_gomp,  bounds=([0. for item in range(n_params)], [np.inf for item in range(n_params)]))
+        y_pred_gomp = func_dgomp(x_pred, *popt_dgomp)
+        gomp_rmse = np.sqrt(np.mean((y_fit_gomp - func_dgomp(x_fit_gomp, *popt_dgomp)) ** 2))
+        plt.plot(x_pred, y_pred_gomp, 'c-', label="dgomp model rmse %i" % int(gomp_rmse))
+        perr = np.sqrt(np.diag(pcov_dgomp))
+        popt_gomp_up = popt_dgomp + perr * stdev
+        popt_gomp_down = popt_dgomp - perr * stdev
+        plt.fill_between(x_pred, func_dgomp(x_pred, *popt_gomp_down), func_dgomp(x_pred, *popt_gomp_up), alpha=0.2, color='cyan')
+        plt.fill_between(x_pred, func_dgomp(x_pred, *popt_gomp_down), func_dgomp(x_pred, *popt_gomp_up), alpha=0.2, color='cyan')
+        plt.axvspan(backward_fit_gomp, x_pred[-1], alpha=0.1, color='cyan')
+        plt.legend(loc='upper left')
+        print(popt_dgomp)
 
     plt.subplot(312)
     if plotdifferential:
