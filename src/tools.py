@@ -25,6 +25,9 @@ def func_gomp(x, A, u, d, v, y0):
         y = (A * np.exp(-np.exp((((u * np.e) / A) * (d - x)) + 1))) + y0
         return y
 
+def func_ext_log(x, a, b, c, d):
+    return a / (1+b*(c**x))**d
+
 def func_log(x, r, K, P0): #Velhurst
     return (K*P0*np.exp(r*x)) / (K + P0*(np.exp(x*r)-1))
 
