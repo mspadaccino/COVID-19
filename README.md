@@ -22,3 +22,5 @@ To update binder goto mybinder.org and add this repo address in the "GitHub repo
 to allow Voila implementation add in "URL to open (optional)" 
 the following address:
 /voila/render/notebooks/Covid_daily_report.ipynb as URL file in the 
+
+Author Maurizio Spadaccino, april 2020
