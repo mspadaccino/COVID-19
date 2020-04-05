@@ -4,7 +4,7 @@ repo for data analysis on Covid-19 diffusion.
 This repo contains analysis built around data about global and italian diffusion of COVID-19 that might be useful in monitoring the spread of coronavirus around the world.
 
 Please click on this link to use it interactively:
-[![Binder](https://hub.gke.mybinder.org/user/mspadaccino-covid-19-hljv0o3l/notebooks/notebooks/Covid_daily_report.ipynb)
+[![Binder](https://hub.gke.mybinder.org/user/mspadaccino-covid-19-hljv0o3l/notebooks/notebooks/Covid_daily_report.ipynb)]
 
 Or alternatively, use the notebook Covid_daily_report in the notebooks folder to perform data exploration and model simulations.
 
