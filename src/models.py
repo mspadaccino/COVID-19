@@ -15,6 +15,7 @@ from scipy.optimize import curve_fit
 from scipy.optimize import differential_evolution
 import scipy.integrate as integrate
 from src.data_downloader import DATA_REPOS, download_from_repo
+from plotly.subplots import make_subplots
 
 def calibrate_SIR(
         y,
@@ -73,18 +74,15 @@ def calibrate_SIR(
     print('mae ', int(np.mean(np.abs(y_fit - y_pred))))
     plt.plot(y_pred)
     if plot_output is not None:
-        fig = go.Figure()
+#         fig = go.Figure()
+        fig = make_subplots(specs=[[{"secondary_y": True}]])
         if 'S' in plot_output: fig.add_trace(go.Scatter(x=list(time_range), y=S, mode='lines', name='Susceptibles'))
-        if 'I' in plot_output: fig.add_trace(go.Scatter(x=list(time_range), y=I, mode='lines', name='Total Infections'))
-        if 'I1' in plot_output: fig.add_trace(go.Scatter(x=list(time_range), y=I1, mode='lines', name='Mild infections'))
-        if 'I2' in plot_output: fig.add_trace(go.Scatter(x=list(time_range), y=I2, mode='lines', name='Severe Infections'))
-        if 'I3' in plot_output: fig.add_trace(go.Scatter(x=list(time_range), y=I3, mode='lines', name='Critical Infections'))
+        if 'I' in plot_output: fig.add_trace(go.Scatter(x=list(time_range), y=I, mode='lines', name='Total Infections'),secondary_y=True)
         if 'R' in plot_output: fig.add_trace(go.Scatter(x=list(time_range), y=R, mode='lines', name='Recovered'))
-        if 'E' in plot_output: fig.add_trace(go.Scatter(x=list(time_range), y=E, mode='lines', name='Exposed'))
-        if 'D' in plot_output: fig.add_trace(go.Scatter(x=list(time_range), y=D, mode='lines', name='Deaths'))
-        fig.add_trace(go.Scatter(x=list(range(len(x_fit))), y=y_fit, mode='lines', name='Actual'))
+        if 'D' in plot_output: fig.add_trace(go.Scatter(x=list(time_range), y=D, mode='lines', name='Deaths'), secondary_y=True)
+#         fig.add_trace(go.Scatter(x=list(time_range), y=y_fit, mode='lines', name='Actual'),secondary_y=True))
         fig.update_layout(
-            title="extended SEIRD Model",
+            title="extended SIRD Model",
             xaxis_title="days of spreading",
             yaxis_title="population",
             font=dict(
