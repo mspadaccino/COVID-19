@@ -16,6 +16,91 @@ from scipy.optimize import differential_evolution
 import scipy.integrate as integrate
 from src.data_downloader import DATA_REPOS, download_from_repo
 
+def calibrate_SIR(
+        y,
+        fit_range,
+        N,
+        S0,
+        I0,
+        R0=0,
+        D0=0,
+        bounds=None,
+        plot_range = 100,
+        plot_output = None):    
+    
+    def SIRModel_solver(t, beta, gamma, theta):
+        return SIRModel(t, S0, I0, R0, D0, beta, gamma, theta)[3] # returns just D for optimizer
+    
+    def SIRModel(t, S0, I0, R0, D0, beta, gamma, theta):
+        # SIR model differential equations
+        def SIR_deriv(y, t, N, beta, gamma, theta):
+            S, I, R, D = y
+            dSdt = -beta * S * I / N
+            dIdt = beta * S * I / N - gamma * I
+            dRdt = gamma * I
+            dDdt = theta * I
+            return dSdt, dIdt, dRdt, dDdt
+        # Initial conditions vector
+        y0 = S0, I0, R0, D0
+        # Integrate the SIR equations over time t
+        ret = odeint(SIR_deriv, y0, t, args=(N, beta, gamma, theta))
+        S, I, R, D = ret.T
+        return S, I, R, D
+    
+    y_fit = y[fit_range[0]:fit_range[1]]
+    x_fit = range(len(y_fit))
+
+    if bounds is not None:
+        lo_bound = []
+        up_bound = []
+        for bound in bounds:
+            lo_bound.append(bound[0])
+            up_bound.append(bound[1])
+    else:
+        lo_bound = None
+        up_bound = None
+    params, _ = curve_fit(f=SIRModel_solver, xdata=x_fit, ydata=y_fit,
+                              method='trf', bounds=(lo_bound, up_bound))
+    beta, gamma, theta = params
+    time_range = range(plot_range)
+    S, I, R, D = SIRModel(time_range, S0, I0, R0, D0, beta,gamma, theta)
+    r0 = beta / gamma
+    print('beta', beta)
+    print('gamma', gamma)
+    print('theta', theta)
+    print('r0', r0)
+    y_pred = SIRModel_solver(x_fit, *params)
+    print('mae ', int(np.mean(np.abs(y_fit - y_pred))))
+    plt.plot(y_pred)
+    if plot_output is not None:
+        fig = go.Figure()
+        if 'S' in plot_output: fig.add_trace(go.Scatter(x=list(time_range), y=S, mode='lines', name='Susceptibles'))
+        if 'I' in plot_output: fig.add_trace(go.Scatter(x=list(time_range), y=I, mode='lines', name='Total Infections'))
+        if 'I1' in plot_output: fig.add_trace(go.Scatter(x=list(time_range), y=I1, mode='lines', name='Mild infections'))
+        if 'I2' in plot_output: fig.add_trace(go.Scatter(x=list(time_range), y=I2, mode='lines', name='Severe Infections'))
+        if 'I3' in plot_output: fig.add_trace(go.Scatter(x=list(time_range), y=I3, mode='lines', name='Critical Infections'))
+        if 'R' in plot_output: fig.add_trace(go.Scatter(x=list(time_range), y=R, mode='lines', name='Recovered'))
+        if 'E' in plot_output: fig.add_trace(go.Scatter(x=list(time_range), y=E, mode='lines', name='Exposed'))
+        if 'D' in plot_output: fig.add_trace(go.Scatter(x=list(time_range), y=D, mode='lines', name='Deaths'))
+        fig.add_trace(go.Scatter(x=list(range(len(x_fit))), y=y_fit, mode='lines', name='Actual'))
+        fig.update_layout(
+            title="extended SEIRD Model",
+            xaxis_title="days of spreading",
+            yaxis_title="population",
+            font=dict(
+                family="Courier New, monospace",
+                size=12,
+                color="#7f7f7f"
+            )
+        )
+        fig.show()
+
+    plt.plot(y_pred)
+    plt.plot(y_fit, 'xr')
+
+    return params
+
+
 def SEIIIRDModel(t, S0, E0, I10, I20, I30, R0, D0, beta1, beta2, beta3,
                  IncubPeriod, DurMildInf, FracSevere, FracCritical,
                  DurHosp, DurICU, CFR):
