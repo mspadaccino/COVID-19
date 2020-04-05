@@ -3,9 +3,8 @@ repo for data analysis on Covid-19 diffusion.
 
 This repo contains analysis built around data about global and italian diffusion of COVID-19 that might be useful in monitoring the spread of coronavirus around the world.
 Please click on this link to use it interactively:
-.. image:: https://mybinder.org/badge_logo.svg
- :target: https://mybinder.org/v2/gh/mspadaccino/COVID-19/master?filepath=voila
- 
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/mspadaccino/COVID-19/master?filepath=voila)
+
 Or alternatively, use the notebook Covid_daily_report in the notebooks folder to perform data exploration and model simulations.
 
 Note that analysises in this repo do not by any means intend to provide any attempt to predict future evolutions of the virus but only to offer a visual tool to capture its dynamics.
