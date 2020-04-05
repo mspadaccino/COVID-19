@@ -2,6 +2,7 @@
 repo for data analysis on Covid-19 diffusion.
 
 This repo contains analysis built around data about global and italian diffusion of COVID-19 that might be useful in monitoring the spread of coronavirus around the world.
+
 Please click on this link to use it interactively:
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/mspadaccino/COVID-19/master?filepath=voila)
 
