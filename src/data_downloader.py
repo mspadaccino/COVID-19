@@ -55,6 +55,7 @@ def download_from_repo(url, filenames, dest):
         shutil.move(t +'/'+ filename, os.path.join(dest, filename.split('/')[-1]))
     # Remove temporary dir
     rmtree(t)
+    return
 
 
 def reformat(path):
