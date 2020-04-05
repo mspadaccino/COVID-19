@@ -5,7 +5,7 @@ This repo contains analysis built around data about global and italian diffusion
 
 Please click on this link to use it interactively on BINDER:
 
-https://hub.gke.mybinder.org/user/mspadaccino-covid-19-uwv1texg/voila/render/notebooks/Covid_daily_report.ipynb?token=sMt1LF4pR4WgvNpQxQ3vcA
+https://mybinder.org/v2/gh/mspadaccino/COVID-19/master?urlpath=%2Fvoila%2Frender%2Fnotebooks%2FCovid_daily_report.ipynb
 
 Or alternatively, use the notebook Covid_daily_report in the notebooks folder to perform data exploration and model simulations.
 
