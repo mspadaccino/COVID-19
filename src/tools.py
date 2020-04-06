@@ -5,55 +5,33 @@ import matplotlib.pyplot as plt
 from scipy.optimize import curve_fit
 from sklearn.linear_model import LinearRegression
 
-# General Functions
-def func_exp(x, a, b, c):
-    # return a * np.exp(-b * x) + c
-    return np.exp(a + b * x) + c
-
-def func_pol(x, a, b, c, d):
-    return (a * x ** 3) + (b * x ** 2) + (c * x) + d
-
-def func_dgomp(x, A, u, d, v, y0):
-    yp1 = func_gomp(x+0.01 , A, u, d, v, y0)
-    ym1 = func_gomp(x-0.01, A, u, d, v, y0)
-    return (yp1-ym1)/0.02
-
-def func_gomp(x, A, u, d, v, y0):
-        """Gompertz growth model.
-        Proposed in Zwietering et al., 1990 (PMID: 16348228)
-        """
-        y = (A * np.exp(-np.exp((((u * np.e) / A) * (d - x)) + 1))) + y0
-        return y
-
-def func_ext_log(x, a, b, c, d):
-    return a / (1+b*(c**x))**d
-
-def func_log(x, r, K, P0): #Velhurst
-    return (K*P0*np.exp(r*x)) / (K + P0*(np.exp(x*r)-1))
-
-def dfunc(x , func, *popt_log):
-    # return x*r*P0*(1-P0/K)
-    yp1 = func(x+0.01 , *popt_log)
-    ym1 = func(x-0.01, *popt_log)
-    return (yp1-ym1)/0.02
-
-def func_log_ext(x_in, a, b, c, d, f):
-    return d + (a - d) / np.power(1.0 + np.power(x_in / c, b), f)
 
 def add_extra_features(df_orig):
     df = df_orig.copy()
-    if 'totale_casi' in df.columns:
-        df['delta_totale_casi'] = df['totale_casi'].diff()
-        df['%delta_totale_casi'] = df['totale_casi'].diff() / df['totale_casi'].shift()
-        df['growth_factor'] = df['totale_casi'].diff() / df['totale_casi'].shift().diff()
-    if 'dimessi_guariti' in df.columns:
-        df['delta_dimessi_guariti'] = df['dimessi_guariti'].diff()
-        df['%delta_dimessi_guariti'] = df['dimessi_guariti'].diff() / df['dimessi_guariti'].shift()
-    if 'deceduti' in df.columns:
-        df['delta_deceduti'] = df['deceduti'].diff()
-        df['%delta_deceduti'] = df['deceduti'].diff() / df['deceduti'].shift()
-        df['deceduti_su_tot'] = df['deceduti'] / df['totale_casi']
-        df['deceduti_su_dimessi'] = df['deceduti'] / df['dimessi_guariti']
+    for col in ['ricoverati_con_sintomi','terapia_intensiva','totale_ospedalizzati','isolamento_domiciliare',
+                'totale_positivi','variazione_totale_positivi','nuovi_positivi',
+                'dimessi_guariti','deceduti','totale_casi','tamponi']:
+        if col in df.columns:
+            df[col+'_daily_variation'] = df[col].diff()
+            df[col + '_daily_percent_variation'] = df[col].diff()/df[col].shift()
+            if col == 'totale_casi':
+                df['growth_factor'] = df['totale_casi'].diff() / df['totale_casi'].shift().diff()
+            if col == 'deceduti':
+                df['deceduti_su_tot'] = df['deceduti'] / df['totale_casi']
+                df['deceduti_su_dimessi'] = df['deceduti'] / df['dimessi_guariti']
+
+    # if 'totale_casi' in df.columns:
+        # df['delta_totale_casi'] = df['totale_casi'].diff()
+        # df['%delta_totale_casi'] = df['totale_casi'].diff() / df['totale_casi'].shift()
+        # df['growth_factor'] = df['totale_casi'].diff() / df['totale_casi'].shift().diff()
+    # if 'dimessi_guariti' in df.columns:
+    #     df['delta_dimessi_guariti'] = df['dimessi_guariti'].diff()
+    #     df['%delta_dimessi_guariti'] = df['dimessi_guariti'].diff() / df['dimessi_guariti'].shift()
+    # if 'deceduti' in df.columns:
+        # df['delta_deceduti'] = df['deceduti'].diff()
+        # df['%delta_deceduti'] = df['deceduti'].diff() / df['deceduti'].shift()
+        # df['deceduti_su_tot'] = df['deceduti'] / df['totale_casi']
+        # df['deceduti_su_dimessi'] = df['deceduti'] / df['dimessi_guariti']
     if 'data' in df.columns:
         df['data'] = pd.to_datetime(df['data']).dt.strftime('%m/%d/%Y')
     return df.set_index('data')
