@@ -22,7 +22,9 @@ def add_extra_features(df_orig):
 
     if 'data' in df.columns:
         df['data'] = pd.to_datetime(df['data']).dt.strftime('%m/%d/%Y')
-    return df.set_index('data')
+        df = df.set_index('data')
+    return df
+
 
 def plot_model(df, col, backward_fit=-1, backward_fit_gomp=-1, forward_look=5, stdev=1,
                plotlimit=False, plotdifferential=True, plotloglinear=True,
