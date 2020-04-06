@@ -20,18 +20,6 @@ def add_extra_features(df_orig):
                 df['deceduti_su_tot'] = df['deceduti'] / df['totale_casi']
                 df['deceduti_su_dimessi'] = df['deceduti'] / df['dimessi_guariti']
 
-    # if 'totale_casi' in df.columns:
-        # df['delta_totale_casi'] = df['totale_casi'].diff()
-        # df['%delta_totale_casi'] = df['totale_casi'].diff() / df['totale_casi'].shift()
-        # df['growth_factor'] = df['totale_casi'].diff() / df['totale_casi'].shift().diff()
-    # if 'dimessi_guariti' in df.columns:
-    #     df['delta_dimessi_guariti'] = df['dimessi_guariti'].diff()
-    #     df['%delta_dimessi_guariti'] = df['dimessi_guariti'].diff() / df['dimessi_guariti'].shift()
-    # if 'deceduti' in df.columns:
-        # df['delta_deceduti'] = df['deceduti'].diff()
-        # df['%delta_deceduti'] = df['deceduti'].diff() / df['deceduti'].shift()
-        # df['deceduti_su_tot'] = df['deceduti'] / df['totale_casi']
-        # df['deceduti_su_dimessi'] = df['deceduti'] / df['dimessi_guariti']
     if 'data' in df.columns:
         df['data'] = pd.to_datetime(df['data']).dt.strftime('%m/%d/%Y')
     return df.set_index('data')
