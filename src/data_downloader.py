@@ -35,12 +35,9 @@ DATA_REPOS = {
 
 def download_from_repo(url, filenames, dest):
     # Create temporary dir
-    # print(filenames)
     t = os.path.join(dest,'temp')
     if os.path.exists(t):
         rmtree(t)
-    #os.makedirs(t, exist_ok=True)
-    #os.chmod(t, stat.S_IWUSR)
     # Clone into temporary dir
     repo = git.Repo.clone_from(url, t, branch='master', depth=1)
     # Copy desired file from temporary dir

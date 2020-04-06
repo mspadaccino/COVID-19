@@ -16,6 +16,41 @@ from scipy.optimize import differential_evolution
 import scipy.integrate as integrate
 from src.data_downloader import DATA_REPOS, download_from_repo
 
+# General Functions
+def func_exp(x, a, b, c):
+    # return a * np.exp(-b * x) + c
+    return np.exp(a + b * x) + c
+
+def func_pol(x, a, b, c, d):
+    return (a * x ** 3) + (b * x ** 2) + (c * x) + d
+
+def func_dgomp(x, A, u, d, v, y0):
+    yp1 = func_gomp(x+0.01 , A, u, d, v, y0)
+    ym1 = func_gomp(x-0.01, A, u, d, v, y0)
+    return (yp1-ym1)/0.02
+
+def func_gomp(x, A, u, d, v, y0):
+        """Gompertz growth model.
+        Proposed in Zwietering et al., 1990 (PMID: 16348228)
+        """
+        y = (A * np.exp(-np.exp((((u * np.e) / A) * (d - x)) + 1))) + y0
+        return y
+
+def func_ext_log(x, a, b, c, d):
+    return a / (1+b*(c**x))**d
+
+def func_log(x, r, K, P0): #Velhurst
+    return (K*P0*np.exp(r*x)) / (K + P0*(np.exp(x*r)-1))
+
+def dfunc(x , func, *popt_log):
+    # return x*r*P0*(1-P0/K)
+    yp1 = func(x+0.01 , *popt_log)
+    ym1 = func(x-0.01, *popt_log)
+    return (yp1-ym1)/0.02
+
+def func_log_ext(x_in, a, b, c, d, f):
+    return d + (a - d) / np.power(1.0 + np.power(x_in / c, b), f)
+
 def SEIIIRDModel(t, S0, E0, I10, I20, I30, R0, D0, beta1, beta2, beta3,
                  IncubPeriod, DurMildInf, FracSevere, FracCritical,
                  DurHosp, DurICU, CFR):
