@@ -15,9 +15,6 @@ Data are automatically downloaded from publicly available repos such as:
 John Hopkins CSSE (https://github.com/CSSEGISandData/COVID-19) for world statistics about Covid-19 diffusion
 Protezione Civile Italiana (https://github.com/pcm-dpc/COVID-19) for national data
 
-Author:
-Maurizio Spadaccino
-
 To update binder goto mybinder.org and add this repo address in the "GitHub repository name or URL";
 to allow Voila implementation add in "URL to open (optional)" 
 the following address:
