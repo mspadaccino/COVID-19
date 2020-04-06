@@ -12,8 +12,8 @@ def add_extra_features(df_orig):
                 'totale_positivi','variazione_totale_positivi','nuovi_positivi',
                 'dimessi_guariti','deceduti','totale_casi','tamponi']:
         if col in df.columns:
-            df[col+'_daily_variation'] = df[col].diff()
-            df[col + '_daily_percent_variation'] = df[col].diff()/df[col].shift()
+            df['daily_'+col] = df[col].diff()
+            df['%daily_'+ col] = df[col].diff()/df[col].shift()
             if col == 'totale_casi':
                 df['growth_factor'] = df['totale_casi'].diff() / df['totale_casi'].shift().diff()
             if col == 'deceduti':
