@@ -17,8 +17,11 @@ def add_extra_features(df_orig):
             if col == 'totale_casi':
                 df['growth_factor'] = df['totale_casi'].diff() / df['totale_casi'].shift().diff()
             if col == 'deceduti':
+                df['deceduti_su_tamponi'] = df['deceduti'] / df['tamponi']
                 df['deceduti_su_tot'] = df['deceduti'] / df['totale_casi']
                 df['deceduti_su_dimessi'] = df['deceduti'] / df['dimessi_guariti']
+            if col == 'tamponi':
+                df['tamponi_su_totale_casi'] = df['tamponi'] / df['totale_casi']
 
     if 'data' in df.columns:
         df['data'] = pd.to_datetime(df['data']).dt.strftime('%m/%d/%Y')
