@@ -8,20 +8,22 @@ from sklearn.linear_model import LinearRegression
 
 def add_extra_features(df_orig):
     df = df_orig.copy()
-    for col in ['ricoverati_con_sintomi','terapia_intensiva','totale_ospedalizzati','isolamento_domiciliare',
+    colslist = ['ricoverati_con_sintomi','terapia_intensiva','totale_ospedalizzati','isolamento_domiciliare',
                 'totale_positivi','variazione_totale_positivi','nuovi_positivi',
-                'dimessi_guariti','deceduti','totale_casi','tamponi']:
+                'dimessi_guariti','deceduti','totale_casi','tamponi']
+    for col in colslist:
         if col in df.columns:
-            df['daily_'+col] = df[col].diff()
-            df['%daily_'+ col] = df[col].diff()/df[col].shift()
             if col == 'totale_casi':
                 df['growth_factor'] = df['totale_casi'].diff() / df['totale_casi'].shift().diff()
             if col == 'deceduti':
-                df['deceduti_su_tamponi'] = df['deceduti'] / df['tamponi']
                 df['deceduti_su_tot'] = df['deceduti'] / df['totale_casi']
                 df['deceduti_su_dimessi'] = df['deceduti'] / df['dimessi_guariti']
             if col == 'tamponi':
-                df['tamponi_su_totale_casi'] = df['tamponi'] / df['totale_casi']
+                df['totale_ospedalizzati_su_tamponi'] = df['totale_ospedalizzati'] / df['tamponi']
+                df['totale_casi_su_tamponi'] = df['totale_casi'] / df['tamponi']
+                df['deceduti_su_tamponi'] = df['deceduti'] / df['tamponi']
+            df['daily_'+col] = df[col].diff()
+            df['%daily_'+ col] = df[col].diff()/df[col].shift()
 
     if 'data' in df.columns:
         df['data'] = pd.to_datetime(df['data']).dt.strftime('%m/%d/%Y')
