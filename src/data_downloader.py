@@ -44,6 +44,7 @@ def download_from_repo(url, filenames, dest):
     for filename in filenames:
         # print(t +'/'+ filename)
         shutil.move(t +'/'+ filename, os.path.join(dest, filename.split('/')[-1]))
+        print('updated ', filename)
     # get repo info (last commit)
     try:
         info = get_git_info(t)
