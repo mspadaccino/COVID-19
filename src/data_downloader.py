@@ -41,15 +41,15 @@ def download_from_repo(url, filenames, dest):
     # Clone into temporary dir
     repo = git.Repo.clone_from(url, t, branch='master', depth=1)
     # Copy desired file from temporary dir
+    for filename in filenames:
+        # print(t +'/'+ filename)
+        shutil.move(t +'/'+ filename, os.path.join(dest, filename.split('/')[-1]))
+    # get repo info (last commit)
     try:
         info = get_git_info(t)
         print('last commit ', info['author_date'])
     except Exception as e:
         print('could not retrieve repo infos, ',e)
-
-    for filename in filenames:
-        # print(t +'/'+ filename)
-        shutil.move(t +'/'+ filename, os.path.join(dest, filename.split('/')[-1]))
     # Remove temporary dir
     rmtree(t)
     return
