@@ -1,3 +1,4 @@
+import datetime
 import json
 import urllib.request as url_req
 import time
@@ -17,9 +18,13 @@ bounding_box_milan_lower = [45.390368, 9.092639]
 bounding_box_milan_upper = [45.539202,9.284036]
 
 API_NEARBY_SEARCH_URL = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json'
-RADIUS = 30000
+RADIUS = 10000
+N_PAGES = 3
+PLACES_TYPES = []
+for item in places_types:
+    PLACES_TYPES.append((item, N_PAGES))
 
-PLACES_TYPES = [('airport', 1), ('bank', 2), ('bar', 3), ('beauty_salon', 3), ('book_store', 1), ('cafe', 1), ('church', 3), ('doctor', 3), ('dentist', 2), ('gym', 3), ('hair_care', 3), ('hospital', 2), ('pharmacy', 3), ('pet_store', 1), ('night_club', 2), ('movie_theater', 1), ('school', 3), ('shopping_mall', 1), ('supermarket', 3), ('store', 3)]
+# PLACES_TYPES = [('airport', 1), ('bank', 2), ('bar', 3), ('beauty_salon', 3), ('book_store', 1), ('cafe', 1), ('church', 3), ('doctor', 3), ('dentist', 2), ('gym', 3), ('hair_care', 3), ('hospital', 2), ('pharmacy', 3), ('pet_store', 1), ('night_club', 2), ('movie_theater', 1), ('school', 3), ('shopping_mall', 1), ('supermarket', 3), ('store', 3)]
 
 def request_api(url):
     response = url_req.urlopen(url)
@@ -82,7 +87,7 @@ def update_places_dataset():
         data += result_parsed
 
     dataframe = pd.DataFrame(data, columns=['place_name', 'place_id', 'lat', 'lng', 'type'])
-    dataframe.to_csv('../data/places.csv')
+    dataframe.to_csv('../data/geodata/places.csv')
     return dataframe
 
 
@@ -93,50 +98,25 @@ def get_place_details(place_id):
 
 def get_places_popularity(places):
     places_popularity = pd.DataFrame()
-    for row, item in tqdm.tqdm(places.iterrows()):
+    for row, item in tqdm.tqdm(places.iterrows(), total=places):
         places_popularity = places_popularity.append(get_place_details(item.place_id), ignore_index=True)
-    places_popularity.to_csv('places_popularity.csv')
+    places_popularity.to_csv('../data/geodata/places_popularity_{}.csv'.format(datetime.date.today().strftime("%m-%d-%Y")))
     return places_popularity
 
 
 if __name__ == '__main__':
 
-    # test = populartimes.get(API_KEY, ['bank', 'hotel'], bounding_box_milan_lower, bounding_box_milan_upper, 1,radius=100)
+    # test = populartimes.get(API_KEY, ['bank', 'hotel'], bounding_box_milan_lower, bounding_box_milan_upper, 1,radius=100, all_places=False)
 
     UPDATE_PLACES_DATASET = False
     if UPDATE_PLACES_DATASET:
         places = update_places_dataset()
     else:
-        places = pd.read_csv('../data/places.csv', index_col=0)
+        places = pd.read_csv('../data/geodata/places.csv', index_col=0)
 
     GET_POPULARITY = False
     if GET_POPULARITY:
         places_popularity = get_places_popularity(places)
     else:
-        places_popularity = pd.read_csv('../data/places_popularity.csv', index_col=0)
-
-        # places = pd.read_csv('../data/places.csv', index_col=0)
-        # places['monday'] = None
-        # places['tuesday'] = None
-        # places['wednesday'] = None
-        # places['thursday'] = None
-        # places['friday'] = None
-        # places['saturday'] = None
-        # places['sunday'] = None
-        # places['current'] = None
-        # for (index, row) in places.iterrows():
-        #     print("Populating " + str(index))
-        #     moments = get_place_popular_moments(row.place_id)
-        #     if moments != None:
-        #         places.at[index, 'monday'] = moments[0]['data']
-        #         places.at[index, 'tuesday'] = moments[1]['data']
-        #         places.at[index, 'wednesday'] = moments[2]['data']
-        #         places.at[index, 'thursday'] = moments[3]['data']
-        #         places.at[index, 'friday'] = moments[4]['data']
-        #         places.at[index, 'saturday'] = moments[5]['data']
-        #         places.at[index, 'sunday'] = moments[6]['data']
-        #         places.at[index, 'sunday'] = moments[6]['data']
-        #
-        # places.to_csv('../data/places_with_moments.csv')
-        # print(places)
+        places_popularity = pd.read_csv('../data/geodata/places_popularity.csv', index_col=0)
 
