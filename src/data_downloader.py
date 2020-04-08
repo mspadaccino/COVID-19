@@ -40,6 +40,7 @@ def download_from_repo(url, filenames, dest):
         rmtree(t)
     # Clone into temporary dir
     repo = git.Repo.clone_from(url, t, branch='master', depth=1)
+
     # Copy desired file from temporary dir
     for filename in filenames:
         # print(t +'/'+ filename)
