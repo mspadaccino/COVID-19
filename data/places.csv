@@ -1,0 +1,441 @@
+,place_name,place_id,lat,lng,type
+0,Milan Linate Airport,ChIJOWJsUarIhkcRYNL_HukulK8,45.452176,9.276308,airport
+1,Milan Linate Prime,ChIJz6BY-AjGhkcRvcNsTMKBOng,45.4538366,9.261438099999998,airport
+2,Signature Flight Support LIN - Milan Linate Airport,ChIJqfjocwjGhkcR18A8Hw-pFbw,45.45361299999999,9.261358,airport
+3,Volo Club Milano,ChIJS1r_8zPphkcRdEtdU7qeqGA,45.4493294,8.9976894,airport
+4,Campo Volo dei Navigli,ChIJq3aCP_vvhkcRQbQwXoQ0rfA,45.4138714,8.8964781,airport
+5,Baialupo - VI HQ,ChIJ6fH7riFLgUcR7HpYwm3Xq4U,45.5532006,9.5055193,airport
+6,Campo Volo,ChIJaQN9kRSQhkcRrJnIipXbI0A,45.6866904,8.9963765,airport
+7,Aero Club Milano,ChIJ24-qNqm_hkcRt2XwyimPfIY,45.5362041,9.1993226,airport
+8,British Airways Word Cargo-Modulo Merci Linate,ChIJoQvCYw3GhkcRr3FCzNHOkOY,45.4619122,9.254727599999999,airport
+9,Eliporto Palazzo Lombardia,ChIJOYuUANLGhkcRyyU8LBvkPL4,45.48601719999999,9.196304999999999,airport
+10,"Lovelycaribe per Viaggi a Cuba, Repubblica Dominicana e Messico",ChIJcybjKRTHhkcRZ5VyQfC2mMM,45.49045829999999,9.205644000000001,airport
+11,Hospital Helipad,ChIJG5GqQMrBhkcR5I3-LvYs-RQ,45.5121086,9.1856687,airport
+12,Novaris Milano,ChIJKxUeOqrBhkcRPnp_d8wdtKg,45.5013584,9.138356000000002,airport
+13,GAT privat aviation,ChIJk1NVegjGhkcRsd9vzxMqq5Q,45.4540976,9.261415299999998,airport
+14,Eliporto Bicocca,ChIJ1zIl_UXHhkcRxBTzwHqDWZY,45.5182966,9.2120758,airport
+15,AEROPORTO LINATE,ChIJMTp9BozJhkcR75RFTldcdZ0,45.46141900000001,9.277554,airport
+16,"HELIPORT - Hospital ""San Raffaele"" (MI)",ChIJjzKs-bvHhkcRQIIKUBkSFMw,45.5043487,9.260267599999999,airport
+17,Hospital Helipark,ChIJ84vp_rvHhkcREUMJV9uqdzg,45.5042862,9.260561299999999,airport
+18,Milan Linate Airport,ChIJAaVFUqbIhkcRzZD_dtY76BQ,45.46208439999999,9.2793881,airport
+19,Enac,ChIJ42iQsAXJhkcRYfWzNNezQag,45.46148590000001,9.2809542,airport
+20,Credito Artigiano Agenzia 2,ChIJceFw2jbEhkcRHB2ee8-txr8,45.441152,9.214351200000001,bank
+21,Credito Valtellinese Spa,ChIJMT7Vke22hkcRrbQiQ12GF4c,45.5668702,9.376966399999997,bank
+22,Banca Popolare di Sondrio S.p.A.,ChIJl--F_knEhkcRuadYzqPuTp4,45.4367102,9.2150914,bank
+23,Credito Artigiano Agenzia 6,ChIJm1vubZPAhkcRMZ_l4i4LkdY,45.51821839999999,9.1708826,bank
+24,Banca Popolare di Milano,ChIJydYPHizEhkcRXGSMe1vy1UE,45.4497068,9.220653499999997,bank
+25,Banco BPM Spa,ChIJR1EmR2jHhkcRIBth2F0j_3M,45.5199761,9.2266417,bank
+26,Banco BPM Spa,ChIJeZyr1CK8hkcRYbjRYY5CkMQ,45.61623820000001,9.2066955,bank
+27,Banco BPM Spa,ChIJVyVbFOm1hkcRFwOM0sD9xts,45.5317513,9.4085551,bank
+28,Credito Artigiano,ChIJQftJEmaThkcReKCMOF48Sd4,45.5706494,9.0208178,bank
+29,Banca Popolare di Milano Spa,ChIJTQbwkP67hkcROWBN2DRUZTs,45.609305,9.2355401,bank
+30,CheBanca! Milano Sempione,ChIJtYAYLhTBhkcR9HgTBHxklbo,45.4832598,9.1632061,bank
+31,Deutsche Bank,ChIJ1wZB4KjGhkcRzMk9uetLLqw,45.466142,9.186096,bank
+32,Banca Profilo Spa,ChIJnxljEQTEhkcRQRc_wgJfDZg,45.4656752,9.1991034,bank
+33,Credito Valtellinese Spa,ChIJzUoSA-bHhkcRaAnyJMimmh4,45.51182790000001,9.285066500000001,bank
+34,Cassa di Risparmio di Parma e Piacenza Spa,ChIJfz8fLdbAhkcREtFEGtAovOc,45.49701699999999,9.1849889,bank
+35,Banca Popolare di Milano Spa,ChIJCbwttZPAhkcRA5E5po7ypEg,45.5200469,9.169856700000002,bank
+36,Banca Popolare di Milano Spa,ChIJz4iYWyXbhkcReFUYz4rGX0Y,45.3560879,9.201416799999999,bank
+37,Findomestic Centro Clienti MONZA,ChIJjd0bTqG5hkcR-y6bhySq9hU,45.579854,9.273172,bank
+38,Credito Valtellinese Spa,ChIJUfBEN2LPhkcRSV3NGa5nqD0,45.42693209999999,9.2649323,bank
+39,Credito Valtellinese Spa,ChIJWdnc_SK8hkcRo5S3uxCDF0k,45.6168856,9.206868199999999,bank
+40,Radisson Blu Hotel Milan,ChIJbQW5wVTAhkcRY80EmLTiCys,45.50066309999999,9.144576299999999,bar
+41,Hotel Roma in Milan,ChIJD7Ws327ChkcRcIUSjWHRF9A,45.4393992,9.098560299999999,bar
+42,Grand Hotel Duca Di Mantova,ChIJ____v92OsUcRFPum7dZ-B4w,45.5501852,9.255220399999999,bar
+43,Hotel Silver Milano,ChIJ5bYLe_LphkcRQRuUuxixgao,45.459016,9.068226,bar
+44,Hotel Charly,ChIJv8PMncPGhkcRpqqCOc2s_5Y,45.4824326,9.208176299999998,bar
+45,Motel Peralba,ChIJheQAjsKThkcRIav0dpSH4YA,45.6126938,9.019131800000002,bar
+46,Grand Hotel et de Milan,ChIJz4oic7HGhkcR6DARPUTOSHk,45.4699224,9.192502899999997,bar
+47,Hotel Victoria,ChIJ5beMbfW9hkcRuJA0zLvNh1g,45.5975395,9.145484300000001,bar
+48,Best Western Antares Hotel Concorde,ChIJHZYWLhjHhkcRdTXtwNMg6Dw,45.5024263,9.2219069,bar
+49,GRAND HOTEL BARONE DI SASSJ,ChIJ66szuzF0NxMRqSu61onUi5M,45.5375,9.230833300000002,bar
+50,Devero Hotel,ChIJWaEBEBu0hkcR_cQAiVkFcU0,45.58025600000001,9.416784999999999,bar
+51,STRAFhotel | a member of Design Hotels™,ChIJ5wx4X67GhkcRve69j0nZ-5U,45.46523699999999,9.191246999999999,bar
+52,Hotel Selide,ChIJG339ICO8hkcR4eYnyEONYa8,45.6171409,9.206927000000002,bar
+53,Old Fashion Club,ChIJwQQXkEXBhkcR6p1HGCVSK6I,45.4727971,9.173582800000002,bar
+54,Corte Grande,ChIJlzlVXkjMhkcR74lvg95N8N4,45.41233,9.3801294,bar
+55,Sanvittore Ristorante Cocktail Bar & Music Lounge,ChIJk_hmoVjBhkcR4RJwcjdIIjw,45.459883,9.1659682,bar
+56,NooN Restaurant & Cocktail Bar,ChIJsd5pEVDBhkcRO-QHXskjBbU,45.4678905,9.1746024,bar
+57,Ristorante Callistos,ChIJ278WkCTHhkcRe7bLnN_K90U,45.5019041,9.2124541,bar
+58,Rock'n'Roll,ChIJBUuu_tjGhkcR3VMSkTR18aU,45.49252909999999,9.207508599999997,bar
+59,Locanda Sant'Ambrogio,ChIJ2b6Vm9GRhkcRA4OKwRY4Sns,45.65983979999999,8.9758322,bar
+60,Devero Hotel,ChIJWaEBEBu0hkcR_cQAiVkFcU0,45.58025600000001,9.416784999999999,beauty_salon
+61,The Spa at Four Seasons Hotel Milano,ChIJqcGQZ7DGhkcRMEI-PQFMiPo,45.469393,9.195218900000002,beauty_salon
+62,Brazilian Beauty Express - Centro Estetico Milano & Parrucchiere Milano,ChIJI6PfKQfEhkcReISsn1LBDHg,45.45535230000001,9.1894662,beauty_salon
+63,EsteticaMente,ChIJ5661oJPAhkcRXtrR0og3c34,45.5189286,9.1704949,beauty_salon
+64,New Malibu,ChIJl3K-AB_HhkcRijDIF3euUF0,45.4959768,9.2199153,beauty_salon
+65,Armonia Del Corpo,ChIJS-B_i5vGhkcRUdIlA3D3NgE,45.4605146,9.2070262,beauty_salon
+66,Studio Olistico Euclide,ChIJ_aEGcwMuVUARpyWetxGtYdg,45.46253369999999,9.211217399999999,beauty_salon
+67,Spazio Aurea,ChIJwwTb68HGhkcRYGWsv7xw-RE,45.4789585,9.2107095,beauty_salon
+68,Pharmacy Melchiorre Gioia,ChIJDyDmDNjGhkcRDb3VE-0Xe5Y,45.4945943,9.2065208,beauty_salon
+69,Estetica E Benessere Mara Rozzano,ChIJMVL27aXEhkcR1ROWkan-hAA,45.3939221,9.167557,beauty_salon
+70,Centro Estetico Diana Braghi,ChIJi0lgeSzHhkcR12sRd9jofms,45.5002764,9.1987291,beauty_salon
+71,Devero SPA Wellness Center,ChIJN3RiERu0hkcRHNYGGQJ6diM,45.58029399999999,9.416591,beauty_salon
+72,Mastoplastica additiva Milano - Lunimedica,ChIJwdYY95PGhkcR8QdcyLRM1fA,45.4707295,9.2163056,beauty_salon
+73,Sale è Salute Srl,ChIJN82ZSlXBhkcRk3Oq09LJt7g,45.4663159,9.1952559,beauty_salon
+74,"CENTRO DENTALE LUGANO - Studio dentistico, Dentista, Medicina estetica , Bovisa, Ghisolfa",ChIJpUPH4uHAhkcRq5DJ6zqejU0,45.4979859,9.166333999999999,beauty_salon
+75,Vanysia vanità e bellezza (centro estetico),ChIJh6qKLR_HhkcRUGuwWglT5vE,45.49806009999999,9.220111399999999,beauty_salon
+76,Centro Estetico MySunny - Estetica & Benessere,ChIJlbmkQFXBhkcRGpK0tMoDFC0,45.45981339999999,9.1810758,beauty_salon
+77,Game Dance & Fitness Academy,ChIJNZ9qdT3qhkcRdZlfCEIjdmE,45.48608309999999,9.0597465,beauty_salon
+78,Fascino,ChIJCYbWKyzBhkcRgITIrQ0IIZ8,45.4893077,9.186188,beauty_salon
+79,Carolin Cruz,ChIJ-TadJgLEhkcRH4wWvdBmKlw,45.4510564,9.1953582,beauty_salon
+80,Mondadori Megastore,ChIJzdPuO6zGhkcRbxZzDdg0kHs,45.4635774,9.1894319,book_store
+81,Libreria Birdland Milano,ChIJdUYdEAHEhkcR_dS48uyGHlQ,45.455685,9.184396999999999,book_store
+82,bastard store,ChIJKzwJhCzHhkcR74zZCEpwD0o,45.50031,9.198407999999999,book_store
+83,Library Of Entertainment,ChIJbx27GlHBhkcRxuLteTbwdxQ,45.465498,9.175989999999999,book_store
+84,Bloodbuster,ChIJGRT9ocfGhkcRkr5CUKRrNrA,45.4771519,9.2022301,book_store
+85,Libreria Popolare,ChIJLT9EFsHGhkcRFeczNEO_08Y,45.4787066,9.207425499999998,book_store
+86,Aleph,ChIJ4aWTGcLGhkcRCVJqRfz0ueg,45.4803937,9.2111494,book_store
+87,Mondadori Bookstore - Rizzoli Galleria,ChIJo60uia_GhkcRAhxvOBoz6hA,45.46635419999999,9.189914899999998,book_store
+88,The Library of Children S. R L,ChIJpTUAUcLGhkcRLSgBW4ulOUA,45.481962,9.210353399999999,book_store
+89,Library Soul Group - Esoteric Ecumenical,ChIJD4VUwavGhkcRY8nWGuNulhY,45.4615464,9.1875123,book_store
+90,Mondadori Megastore,ChIJR_4tkmTBhkcRKaEoWdYg9n0,45.46717839999999,9.151221999999999,book_store
+91,Sports Library,ChIJ5Yzhq1HBhkcRs6DVnB9dpTE,45.466453,9.176231,book_store
+92,Libreria del Convegno,ChIJySENMIjGhkcRjNepJJY9IRo,45.4660705,9.2299777,book_store
+93,a+mbookstore,ChIJyealfcHGhkcR53sbCiZ_Nes,45.479941,9.208660499999999,book_store
+94,Mondadori Bookstore,ChIJZ9DeIOvDhkcR4yev4xcv6O4,45.4419358,9.1570207,book_store
+95,Mondadori,ChIJm8MXuPW4hkcRuTA6xQjzNNg,45.5499565,9.2573513,book_store
+96,Zanaria Filatelici,ChIJDwzms63GhkcRtT1O13aNHfw,45.4654957,9.1881569,book_store
+97,Oldani Cartoleria,ChIJNYWrI-HDhkcR3R63ILyoS94,45.4565482,9.1609833,book_store
+98,Milano Fashion Library,ChIJTcRyf_vDhkcRLl-h2XFyuIE,45.4542622,9.1718461,book_store
+99,Alastor,ChIJj7zIKjTBhkcRsYhjbxkVNjQ,45.48003000000001,9.183213499999999,book_store
+100,California Bakery,ChIJs6BQZUrBhkcR2zi88W4fDXw,45.4767309,9.184025900000002,cafe
+101,Ristorante Callistos,ChIJ278WkCTHhkcRe7bLnN_K90U,45.5019041,9.2124541,cafe
+102,La Caffetteria Di Alberton Mario,ChIJc2klAC3qhkcRyRj8WqwuZLI,45.4762078,9.050750899999997,cafe
+103,Fioraio Bianchi Caffè,ChIJsTasELXGhkcR6-oRtweYeUY,45.4752884,9.189127899999999,cafe
+104,Yguana Cafè,ChIJWyJUparGhkcRAdLFbkhEjZ8,45.4589691,9.1825027,cafe
+105,Bowling dei fiori,ChIJGT1-2ovDhkcRBicgWp38FiE,45.43518599999999,9.170579,cafe
+106,All Service S.r.l. Assistenza Autorizzata PHILIPS SAECO GAGGIA,ChIJ1bT_gRLEhkcReKqENzMKnbE,45.44167999999999,9.188015699999998,cafe
+107,Cafeteria San Barnaba,ChIJg9Bq36bGhkcR8pu2_9moqao,45.4595725,9.1984061,cafe
+108,Ristorante Samsara e Volta Rossa,ChIJDz-JlPK3hkcR_Q-JOCMNDYU,45.5418883,9.312272,cafe
+109,Jamaica,ChIJ9_HUprTGhkcRU8vGiIpU5sk,45.472593,9.187593,cafe
+110,Nord Est Cafè,ChIJDXpB_yzBhkcR0Z-CdwasJas,45.489217,9.188832,cafe
+111,Aperitivo Milano,ChIJ7z25tajGhkcRWNrqqYyMAFI,45.45786349999999,9.1799956,cafe
+112,Princi,ChIJ3fKEnDXBhkcRlFV34BVFmFY,45.4778574,9.184845200000002,cafe
+113,Cioccolatitaliani,ChIJ_8oKaK7GhkcRnrGHAR4a0W8,45.4657546,9.1913315,cafe
+114,Pasticceria San Gregorio S.a.s.,ChIJ9aOD_sDGhkcRNP8QxUzJI9A,45.4777433,9.207859799999998,cafe
+115,Dixieland Café,ChIJD1UbDF_BhkcRNwXcjYilP84,45.46088400000001,9.162951999999999,cafe
+116,Art Factory Cafè,ChIJL5cNId3GhkcRpSIAVnhtypA,45.4856247,9.2105049,cafe
+117,Arnold Coffee,ChIJPUNBG6bGhkcRCuJXcAYN1w0,45.4615729,9.194993400000001,cafe
+118,Pasticceria San Carlo.,ChIJeZHnxlvBhkcR7djE8EqVI6s,45.4654,9.168500000000002,cafe
+119,Ristorante Savini,ChIJjcBseK7GhkcRQ-PznMmWVUA,45.465728,9.1905653,cafe
+120,San Giuseppe,ChIJn89Nb7LGhkcR-b9AyvG4vzs,45.46851729999999,9.1890833,church
+121,Duomo di Milano,ChIJoTZGw67GhkcREy4aECdOf6s,45.4640976,9.1919265,church
+122,Santa Maria delle Grazie,ChIJgxy_RFrBhkcRWVrH08TNW-0,45.465963,9.170962099999999,church
+123,Santa Maria presso San Satiro,ChIJt1PB9qvGhkcRwIetkCDW1qM,45.4627778,9.1877778,church
+124,Basilica di Sant'Ambrogio,ChIJCfxX3lbBhkcRY78V8stFXio,45.46232920000001,9.175612000000001,church
+125,Basilica San Lorenzo Maggiore,ChIJpSr6-P_DhkcRFjrdAKON44Q,45.4582128,9.1820776,church
+126,Basilica Santuario Sant'Antonio di Padova,ChIJwXREBDHBhkcR2pUFCgmgM3k,45.4849334,9.182101699999999,church
+127,Church of San Bernardino,ChIJYYp13h6NhkcRDXbwYb-DrXA,45.57882790000001,8.8989662,church
+128,San Cristoforo sul Naviglio,ChIJv8q2DMLDhkcRaFljenn-0t4,45.4477319,9.1547713,church
+129,Tempio Valdese,ChIJGZvSZKbGhkcRgY3Fu2xpR-8,45.46148470000001,9.1969511,church
+130,Chiaravalle Abbey,ChIJ7yy6eaDFhkcRSzJkw_utHqw,45.4158462,9.236095,church
+131,Convento S. Maria delle Grazie,ChIJIdmHU5C5hkcRli0X4XEgY9U,45.5912939,9.285006499999998,church
+132,Monza Cathedral,ChIJZRlLc6K5hkcRBrJIM1td7VA,45.5835552,9.2754637,church
+133,San Vincenzo in Prato,ChIJmc8Gtv3DhkcRdOCH6YFVWCg,45.45770159999999,9.1739699,church
+134,Chiesa e Convento di Santa Maria al Carrobiolo,ChIJZbjxOpm5hkcRVXKJeNJCHn0,45.5870994,9.2773023,church
+135,St. Charles Church,ChIJOff4bvy7hkcRHdWocKUMiSc,45.60989729999999,9.239194099999999,church
+136,Chiesa Prepositurale dei S. S. Pietro e Paolo,ChIJaXILpeS7hkcRCrXhhVy7dsA,45.6113548,9.2380914,church
+137,Chiesa Cattolica Parrocchiale di Santa Maria Annunciata in Chiesa Rossa,ChIJpzHt3nbEhkcRRd3B7RZPILM,45.43288920000001,9.1780489,church
+138,Basilica di Sant'Eufemia,ChIJ_wHBBALEhkcRAwEJ-7YSnPE,45.4574892,9.1883871,church
+139,Santa Maria della Passione,ChIJEe2OFaPGhkcRM2V9Ep6pL0E,45.46520059999999,9.2032717,church
+140,Chiesa Cristiana Dello Spirito Santo | Milano | IURD,ChIJz45UBR_HhkcR-8ELj72NhBg,45.4964229,9.219630100000002,church
+141,Parrocchia Sant'Ambrogio V. e Dott.,ChIJf1e4TwzChkcRgifXuyX_1s4,45.4184865,9.0685497,church
+142,Parrocchia Sant'Ambrogio,ChIJMxsIu8y4hkcRpk4oM9LQF2Q,45.5562201,9.2146901,church
+143,Cooperativa Sociale Comunita' Del Giambellino,ChIJWdinYyTChkcRWyvQPPfosDw,45.4573846,9.1204168,church
+144,Parrocchia S.S. Alessandro e Martino,ChIJTSlRLUmUhkcRKI_UAhWWE14,45.595305,9.0785421,church
+145,Parish of St. Joseph of Peace,ChIJmbmKJRHBhkcRp9Ki-RKQczs,45.4859115,9.161032999999998,church
+146,Sacra Famiglia In Rogoredo Parish,ChIJiWFJgJXFhkcRH0TGXOvhrFk,45.43236369999999,9.243724799999999,church
+147,Seminario Arcivescovile di Milano,ChIJj6D6xrrGhkcR80kY4AWsXZg,45.4682705,9.197656400000001,church
+148,Parrocchia Medaglia Miracolosa Or,ChIJk6JilczFhkcR3uRtRTY7jsE,45.44198369999999,9.2245289,church
+149,chiesa della Santissima Trinità,ChIJ47IFNzjBhkcRCQZvpOpnqRU,45.4798417,9.1759475,church
+150,Chiesa Parrocchiale di San Vito al Giambellino,ChIJN-3708TDhkcRRD54rjQUjYU,45.45118739999999,9.1474389,church
+151,Provincia Lombarda Chierici Regolari Di S.Paolo Detti Barnabiti,ChIJt-lt0KvGhkcRJFej_rYRySQ,45.4610092,9.1878399,church
+152,Parrocchia Santi Patroni D'Italia,ChIJT28u2CzChkcRjyHi27CZnqQ,45.4555263,9.133585499999999,church
+153,Oratorio Femminile Sacra Famiglia,ChIJa8yySNGShkcRPpoo5jWNjQ4,45.556814,8.974230900000002,church
+154,Parrocchia San Martino in Niguarda,ChIJ9WNO4LXAhkcR94lRqPv2m_c,45.5157469,9.195017600000002,church
+155,Basilica di Sant'Eustorgio,ChIJ-QGdVAfEhkcR5PXbaEr1tk4,45.4539925,9.181069200000001,church
+156,Associazione Casamica Onlus,ChIJwW7Ie4vGhkcRilTVgieFzSI,45.4719641,9.227631799999997,church
+157,Associazione Casamica Onlus,ChIJ9WdszWPGhkcRse7Jg0YkTZM,45.46795119999999,9.2345734,church
+158,Regina Pacis Parish,ChIJZ_vDij6_hkcRgr9Ns4Eso04,45.55649369999999,9.192754700000002,church
+159,Chiesa Cattolica Parrocchiale Basilica dei Santi Nereo e Achilleo,ChIJL1dsvYnGhkcRvkGtBhAMcP0,45.468122,9.233497,church
+160,Synlab MONZA CAM POLIDIAGNOSTICO,ChIJzQGjAnm5hkcRYIuEx1R8bvo,45.5950755,9.250454799999998,doctor
+161,Dr. Rubin Benjamin,ChIJ9el3ikTBhkcRsnFT_Ie31Ww,45.4713551,9.1698102,doctor
+162,Speciani Dr. Attilio,ChIJbc6tc27BhkcRMiBrakL3H1E,45.47462559999999,9.1539261,doctor
+163,Centro Medico Galeno,ChIJI_FG2gPEhkcR-mvtE-czK0A,45.4551136,9.186677099999999,doctor
+164,Centro Medieste Srl,ChIJqXqaBpi5hkcR1QjhZvW6iJU,45.584114,9.280476999999998,doctor
+165,Dott.ssa Bianchi Alessandra,ChIJ4wK71t3AhkcREwbcxgeKU7I,45.49757510000001,9.178794300000002,doctor
+166,Molteni D.ssa Francesca,ChIJ857dB3PEhkcRNXMCtMxwgjQ,45.4372352,9.183018599999999,doctor
+167,IDE | Istituto Dermatologico Europeo,ChIJVaxb3izEhkcRxz-A8iU44Z8,45.44826399999999,9.2236528,doctor
+168,Studio Radiologico Belfiore 5,ChIJqx0UtdHahkcRf7jgsl2pRog,45.37341579999999,9.210948499999997,doctor
+169,Metis - Studio Medico e Psicologico,ChIJ9yEB-MHGhkcRhR7ADhZr0-g,45.4801011,9.2112623,doctor
+170,Osteopata Carrubba DO,ChIJw5SCtXjBhkcRGxKpPxYhTcQ,45.466992,9.139431999999998,doctor
+171,Gi.Vi.Dental Ambulatorio dentistico,ChIJWVg3RRm5hkcRKrUUXkHDqyM,45.573066,9.2484384,doctor
+172,Centro Medico Fisioterapico Ambrosiana Medical Center,ChIJ27v2lHzBhkcR-ebCUY4oTLg,45.4651053,9.1472942,doctor
+173,Dental Practice Sidoti & Tartaglia Srl,ChIJI7XHu2TIhkcRicDkqB7uUMo,45.4925407,9.2988924,doctor
+174,Auxologico Pier Lombardo,ChIJa3jTIiHEhkcROmikgj1bvp8,45.453494,9.207806000000001,doctor
+175,Vitaldent,ChIJvTiJXJXGhkcRtsb6sThBLEM,45.4743559,9.2108063,doctor
+176,Studio San Calimero,ChIJdWrO0gLEhkcRhBAjBn6wBVY,45.4560548,9.1926869,doctor
+177,Studio Medico Bassani Dr. Luciano Cesare,ChIJKX1bTLzGhkcRzs22chdVG_g,45.4694116,9.2053994,doctor
+178,Marchi Dr. Riccardo Somed,ChIJRzE9jALEhkcRm2q5kgovkw4,45.45735639999999,9.1906951,doctor
+179,ICLID Studio Medico Associato,ChIJ_7DxWDXBhkcRIbPW3dpzAF0,45.4773076,9.1869673,doctor
+180,Studio Dentistico Dott. Fabio Terzi,ChIJYcpAaLm5hkcRyaSlpUOsRag,45.5773662,9.2854122,dentist
+181,Bolzoni Luca,ChIJYf7YeAfEhkcRuPp6edLIvxk,45.451944,9.1805767,dentist
+182,Polito Mario,ChIJ4-AqjRjEhkcRvAnKU2ekbvQ,45.44950619999999,9.201614800000002,dentist
+183,Studio Dentistico Associato Stomatologico Castelvetro,ChIJgTUdYhbBhkcRml22-Ct6SwQ,45.48468769999999,9.164133999999997,dentist
+184,Ambulatorio Odontoiatrico Ass. Grimaldi E Zorloni,ChIJ_ZRHRyK8hkcRqPZaM3Kgc9M,45.6146116,9.207056299999998,dentist
+185,Studio Dentistico Dott.ssa Isabella Santo,ChIJeQqz6226hkcRRzwMrujY5Qc,45.6225473,9.3158387,dentist
+186,Studio Dentistico Solari Dott. Davide,ChIJ-8ofsHrlhkcRWjmCEw3KHbM,45.3947331,8.918874100000002,dentist
+187,ISI | Italian Institute Stomatologico,ChIJP3Yra6DGhkcRP5LLvQ_IbLw,45.45799580000001,9.2036492,dentist
+188,Studio Dentistico Arosio Paolo,ChIJ7YNiBgWxhkcRwn0pm6MAfzs,45.6246725,9.3861557,dentist
+189,Gi.Vi.Dental Ambulatorio dentistico,ChIJWVg3RRm5hkcRKrUUXkHDqyM,45.573066,9.2484384,dentist
+190,Dental Practice Sidoti & Tartaglia Srl,ChIJI7XHu2TIhkcRicDkqB7uUMo,45.4925407,9.2988924,dentist
+191,Auxologico Pier Lombardo,ChIJa3jTIiHEhkcROmikgj1bvp8,45.453494,9.207806000000001,dentist
+192,Vitaldent,ChIJvTiJXJXGhkcRtsb6sThBLEM,45.4743559,9.2108063,dentist
+193,Studio Dentistico Somazzi,ChIJTcifT8PGhkcR6TdmqOqqDhM,45.4844275,9.2086074,dentist
+194,Studio Dentistico Associato Mazzitelli Taroni,ChIJxfqiPDbBhkcRh_kNBV3P-eg,45.4764634,9.191954399999998,dentist
+195,Studio dentistico,ChIJ06EwJxnHhkcR3l90ZFQU32Y,45.4992339,9.2219388,dentist
+196,Dr. Fabio Gorni,ChIJnSvhoWXBhkcRr9h7hMXu_kY,45.46910149999999,9.1531074,dentist
+197,Studio Dentistico Trasforini Di Trasforini Dr. Daniele,ChIJswkZ1knBhkcRjj4IQ7SEUho,45.477762,9.179765099999997,dentist
+198,DentalPro,ChIJSVT7E_nDhkcRKHAJad5e7QI,45.454866,9.173138,dentist
+199,Studio Associato Dottori Leghissa - Briata - Demarosi,ChIJH3p6wmTBhkcREB7kXjANw08,45.46744109999999,9.1511976,dentist
+200,Radisson Blu Hotel Milan,ChIJbQW5wVTAhkcRY80EmLTiCys,45.50066309999999,9.144576299999999,gym
+201,Cosmo Hotel Torri,ChIJb64_jtGwhkcRFwryfY_j4qo,45.6007363,9.362219099999999,gym
+202,Hotel Capitol Milano,ChIJ9bWsImfBhkcR8pqkD2KBDM8,45.466345,9.158784,gym
+203,Hotel Mito,ChIJfQKAAdnthkcROOGHDgPTi9A,45.50265780000001,8.9116143,gym
+204,7 City Club,ChIJfQz986vGhkcRX5W-c1gXmuc,45.46248070000001,9.187817099999998,gym
+205,Passaggio Obbligato S. r. l.,ChIJmZC9IuDAhkcRLUcXAI4WBX0,45.4979508,9.169759299999999,gym
+206,Centro Enforme - Pilates Milano,ChIJYwsFTOrGhkcRzVDhDP-6TXQ,45.4782283,9.214173799999998,gym
+207,Spazio SoloSalute Milano,ChIJf8WASMDGhkcRXF0mFOtgJTY,45.4772138,9.209574500000002,gym
+208,GetFIT via Ravizza,ChIJJXb5-WTBhkcR3m7tTHoXVzw,45.4675813,9.1526313,gym
+209,Canottieri Milano,ChIJe13JlMbDhkcRyuJWaR6zBwY,45.446575,9.149279,gym
+210,KEASYFIT Milano,ChIJnc5DDUrAhkcR9wrhu1MP5BE,45.5037598,9.1300182,gym
+211,ACCADUEO' CLUB,ChIJWwfX1czFhkcR5NtkLTTsZzs,45.4432528,9.223788599999997,gym
+212,Fantasyclimbing associazione sportiva dilettantistica,ChIJS6w97tjDhkcRCdiz0aKei04,45.4595883,9.1508245,gym
+213,MMA Athletics Boxing,ChIJEV2f-BLEhkcR2zoz0Z27NgY,45.4411552,9.191885199999998,gym
+214,ASD Sport Village Monza,ChIJjay3xbq5hkcR9wCOEw31Yv0,45.5758336,9.2792341,gym
+215,Piscina Gestisport,ChIJTbWz_K63hkcR-XHE9by5ids,45.5545425,9.3454676,gym
+216,Iyengar Yoga Institute Milan,ChIJN-TKpeLDhkcRLtmGN-0ag4Y,45.4592568,9.1693421,gym
+217,centro yoga bhadra asd,ChIJXZV-tjnBhkcRvieAR0Qmajw,45.4806543,9.1756524,gym
+218,B.Fit,ChIJCwOeKr2NhkcRZk0ny_UGyAA,45.6030542,8.922352899999998,gym
+219,Yomoda,ChIJN_iFLv3DhkcR8vfDRvHpbjE,45.45770949999999,9.1697995,gym
+220,Brazilian Beauty Express - Centro Estetico Milano & Parrucchiere Milano,ChIJI6PfKQfEhkcReISsn1LBDHg,45.45535230000001,9.1894662,hair_care
+221,OREA MALIÀ,ChIJh9SdWWTBhkcRGcm9syWF_4M,45.4672952,9.1530802,hair_care
+222,Donna international hair,ChIJF2zaTDXBhkcRlvghwM2s4-Q,45.4780336,9.1879908,hair_care
+223,Armonia Del Corpo,ChIJS-B_i5vGhkcRUdIlA3D3NgE,45.4605146,9.2070262,hair_care
+224,Studio Olistico Euclide,ChIJ_aEGcwMuVUARpyWetxGtYdg,45.46253369999999,9.211217399999999,hair_care
+225,Atelier Parrucchieri Di Russo & De Gregorio,ChIJQfx8CzHEhkcRA-A8OVbNZs0,45.4436943,9.2161885,hair_care
+226,Bonatti Profumeria Forniture per Parrucchieri,ChIJwVb5qWu_hkcRVYe0nihnCLU,45.55106259999999,9.1851165,hair_care
+227,Moroni Hair,ChIJpTKGnqXOhkcR6TJF2hk5fYI,45.4343236,9.352048999999997,hair_care
+228,Emilia Tarantino Parrucchiere,ChIJm-3Mm3S5hkcRq1bjv6fxVY0,45.58648609999999,9.2648893,hair_care
+229,CAPAM-C.F.P.Unione Artigiani,ChIJG1Ru82u5hkcRorWYr_KgDUc,45.5897885,9.2532307,hair_care
+230,TATIS Parrucchieri,ChIJGXADSeDGhkcRLKCUsgpNGGU,45.4893361,9.2136208,hair_care
+231,Otto Hair Melloni,ChIJEeSY_JfGhkcRHIxGLZOo5xA,45.4664527,9.2082243,hair_care
+232,Vanysia vanità e bellezza (centro estetico),ChIJh6qKLR_HhkcRUGuwWglT5vE,45.49806009999999,9.220111399999999,hair_care
+233,Nello Migliaccio Hair Stylist,ChIJM2qtySbEhkcRK1DsoJLFlAA,45.452748,9.209862,hair_care
+234,Game Dance & Fitness Academy,ChIJNZ9qdT3qhkcRdZlfCEIjdmE,45.48608309999999,9.0597465,hair_care
+235,Fascino,ChIJCYbWKyzBhkcRgITIrQ0IIZ8,45.4893077,9.186188,hair_care
+236,Studio Rinaldi,ChIJFS-YkaLGhkcRjWDZMJq9AVY,45.464609,9.205921499999999,hair_care
+237,ISTALOOK - Extension e Parrucche,ChIJQboFpS64hkcRdMVNtkMuuk8,45.5585548,9.301096399999999,hair_care
+238,Borgonovo Group,ChIJwdEgleS7hkcRuG2qppeacSI,45.61119770000001,9.243317500000002,hair_care
+239,Carolin Cruz,ChIJ-TadJgLEhkcRH4wWvdBmKlw,45.4510564,9.1953582,hair_care
+240,Giò D'Amato,ChIJC3qNcmLBhkcRUM7rNBaVj-U,45.4617705,9.1518372,hair_care
+241,Marcello Nocera hair spa,ChIJpfP3Xh_EhkcRyVL3tZ485ik,45.45310080000001,9.202931200000002,hair_care
+242,Conte Stefano Parrucchiere,ChIJE-ZVh6K5hkcRsTRLm05Gvss,45.583669,9.2778686,hair_care
+243,Tocco Magico Parrucchieri,ChIJ-4Brl--2hkcR4DQSnx8hS0Y,45.56633799999999,9.373281,hair_care
+244,Vanity & Style Evolution,ChIJw5t5iyq-hkcRdIJDE3L4fJI,45.5786515,9.129532700000002,hair_care
+245,"Barbiere, Parrucchiere uomo e Bambini, Messina Parrucchiere",ChIJE3-0Up-5hkcRaRSdF7JZACw,45.585036,9.2755394,hair_care
+246,Curatolo HAIR,ChIJE16qYB_EhkcRijLiQRjblZk,45.4533113,9.203083399999999,hair_care
+247,ALL' ITALIANA Acconciatori - Insubria,ChIJ7STbnynEhkcReBEe3VafLos,45.4532364,9.2195542,hair_care
+248,Maison De Beauté Estetica Avanzata Viso e Corpo,ChIJZbyFEBLMhkcRXIjnWD4xLf0,45.4375033,9.3125707,hair_care
+249,The Cunsol Hairdressers Milan,ChIJcWlmMpzGhkcR5CWFHfBaxvE,45.4583377,9.2119515,hair_care
+250,Hair & More,ChIJgTB6JlfGhkcRt_dZqRXcubQ,45.4841215,9.241186999999998,hair_care
+251,Color Amour,ChIJZS0-b1eThkcRs1KVYakUVF8,45.5571376,9.0243159,hair_care
+252,epiLate Cernusco Sul Naviglio,ChIJZWlz3tm3hkcRuj9qrRb5hpw,45.52579599999999,9.3318697,hair_care
+253,Chiantello Parrucchieri,ChIJLS5QAOLDhkcRNbL9gRUBb5I,45.4599308,9.1649138,hair_care
+254,Gianni Amorfini Hair Style Milano,ChIJN_1VSvvGhkcRs95xdbBBib4,45.487215,9.226289,hair_care
+255,Il Salone Di Marco Rozzano,ChIJQYixk6XEhkcRo_XZyEWpPdM,45.3938819,9.1674148,hair_care
+256,Melinè parrucchieri specialisti del colore,ChIJTZ7aId7DhkcRvvWAK6hFEQE,45.4570002,9.157759200000001,hair_care
+257,Moscova10,ChIJvT0_QLbGhkcRKeCZK-splG8,45.4758347,9.195220899999999,hair_care
+258,Barbiere Baranzate Cesate Bollate -Not Only Barber - Marco Cusmano,ChIJH5zokxvAhkcR5dNaEYpUj60,45.52667269999999,9.1172765,hair_care
+259,Divine Parrucchieri Italiani Unisex,ChIJCyVUKAm4hkcR0QwgQXX1Fso,45.52614560000001,9.276031,hair_care
+260,Humanitas Research Hospital,ChIJs8Gn4kTbhkcR4PsidKgzh8A,45.3725086,9.1673277,hospital
+261,Synlab MONZA CAM POLIDIAGNOSTICO,ChIJzQGjAnm5hkcRYIuEx1R8bvo,45.5950755,9.250454799999998,hospital
+262,Diamedica,ChIJD0q3IqnGhkcRfJkYiQe7pYo,45.4612736,9.190871099999999,hospital
+263,Istituti Clinici Zucchi - Monza,ChIJ5xgOrp-5hkcR2KjXUDbwgvQ,45.5859195,9.272337400000001,hospital
+264,Ospedale Maggiore Policlinico Padiglione Monteggia,ChIJuzFgfx3EhkcRyH6ELLbWHeM,45.4574475,9.1960967,hospital
+265,Centro Ambrosiano Di Medicina Dello Sport,ChIJ2T7Si5XDhkcR1P8_vWnMykk,45.4387686,9.151783100000001,hospital
+266,Poliambulatorio Medico e Tricologico Baldhouse,ChIJ0Wmg0NzGhkcRvVwyFDNBVo4,45.48498800000001,9.2086579,hospital
+267,Auxologico Cusano - Punto Prelievi,ChIJZU13Q3K_hkcR4WF5qgmSTNg,45.5513191,9.175049000000001,hospital
+268,Humanitas San Pio X,ChIJYWf-aCrBhkcR618ElRYQXVA,45.4947882,9.189251299999999,hospital
+269,ASST Great Metropolitan Niguarda,ChIJcRpO8MXAhkcR7SK_NTlIICs,45.51040649999999,9.1860723,hospital
+270,Casa di Cura San Giovanni,ChIJmQR8gJrBhkcRecbmvmjVCN4,45.4745354,9.128928,hospital
+271,Casa di Cura la Madonnina,ChIJUYuv9RzEhkcRh87sQFup6pc,45.4543259,9.194908899999998,hospital
+272,Centro Medico Fisioterapico Ambrosiana Medical Center,ChIJ27v2lHzBhkcR-ebCUY4oTLg,45.4651053,9.1472942,hospital
+273,Auxologico Pier Lombardo,ChIJa3jTIiHEhkcROmikgj1bvp8,45.453494,9.207806000000001,hospital
+274,IRCCS Galeazzi Orthopedic Institute,ChIJLfpa0ZbAhkcRXad6EVwp_lQ,45.523162,9.174005,hospital
+275,Ospedale Fatebenefratelli e Oftalmico,ChIJVaTRV8rGhkcR24PhLnLMpYY,45.4791223,9.1918435,hospital
+276,Local Health Authority of the Province of Milan 3,ChIJYbLjLJ-4hkcRYOhXoWsdSzw,45.53522099999999,9.233009899999999,hospital
+277,San Raffaele Turro,ChIJ06P0OhvHhkcRvEEqQARME1o,45.4991785,9.229135099999997,hospital
+278,Studio San Calimero,ChIJdWrO0gLEhkcRhBAjBn6wBVY,45.4560548,9.1926869,hospital
+279,Studio Medico Bassani Dr. Luciano Cesare,ChIJKX1bTLzGhkcRzs22chdVG_g,45.4694116,9.2053994,hospital
+280,Alexion Pharma Italy Srl,ChIJsyCteKXGhkcRjc28ep_5uhA,45.46464770000001,9.195697,pharmacy
+281,Esselunga,ChIJhed0ViPIhkcR26DjRLhYCMo,45.51326599999999,9.323695299999999,pharmacy
+282,Farmacia della Torretta,ChIJcQUw7YnDhkcR0E1j-WODSsw,45.43591,9.173148,pharmacy
+283,Farmacia Orio - Valore Salute,ChIJW19EA2vBhkcR_1brt1hZyJE,45.4778147,9.161568299999999,pharmacy
+284,Mucchiati Farmacia,ChIJmStoCSfzhkcR6wH3JmDEppI,45.5464037,8.882625,pharmacy
+285,Farmacia Bramante,ChIJcTTWtvDGhkcRkEoF5-QCYkQ,45.4821943,9.2295155,pharmacy
+286,Farmacia Concordia,ChIJUxbOsJfGhkcRvGhbnlecYh4,45.4676998,9.210061999999999,pharmacy
+287,Farmacia Umbria,ChIJa-vHKYPGhkcRTKMMXh1af1c,45.4580891,9.217130200000001,pharmacy
+288,Farmacia Repubblica,ChIJE68uusjGhkcRMlWP158ojGA,45.4801613,9.1995522,pharmacy
+289,Farmacia Farini S.n.c,ChIJL5lg4i7BhkcR2BcDgLXgE1o,45.4901932,9.1830363,pharmacy
+290,Beato angelico,ChIJ68L9jIvGhkcR2PK9_hcozHI,45.47052429999999,9.227304499999999,pharmacy
+291,Farmacia Manelli Milano Fiera,ChIJ_eq4hnTBhkcRbmSvhFWU3Pw,45.47829489999999,9.1472454,pharmacy
+292,Pharmacy Melchiorre Gioia,ChIJDyDmDNjGhkcRDb3VE-0Xe5Y,45.4945943,9.2065208,pharmacy
+293,Farmacia De Poli,ChIJvYQn9-TGhkcRnxMuOy3bQtg,45.48610069999999,9.2220324,pharmacy
+294,Farmacia Aeroporto Linate,ChIJCZclS6bIhkcREozo6cerlVY,45.4615805,9.2790504,pharmacy
+295,Parafarmacia Obiettivo Salute Snc,ChIJAaHWlyG4hkcRi0AqSJtFdyc,45.5461444,9.298037899999999,pharmacy
+296,Farmacia Comunale,ChIJHcGo4X6ShkcRWkvxfsrLUCQ,45.5942264,8.9492323,pharmacy
+297,Farmacia Lorenteggio - Apoteca Natura,ChIJuX-YMTTChkcRUJxkOBfw3oE,45.4470669,9.1271215,pharmacy
+298,Farmacia Lamiranda,ChIJ635FpJa4hkcRbNiXHA2oa-Y,45.54397470000001,9.2376601,pharmacy
+299,Farmacia Comunale,ChIJSaQT5M3ahkcROnrJEnySccQ,45.37499729999999,9.2122254,pharmacy
+300,Animal House Milano,ChIJVTDjDiPEhkcRbd-OQ-1t5eI,45.4489036,9.205891099999999,pet_store
+301,L'Agricola,ChIJtzmsdKmUhkcRxVzGzbT__Sg,45.55250830000001,9.028925099999999,pet_store
+302,Animal One Milano,ChIJT9_TyMbGhkcR6obsuWaWlas,45.4791099,9.2051187,pet_store
+303,The Big Blue Raisoni Sergio & C. Snc,ChIJH67DX2LBhkcRyMY7BMZoXr4,45.46228199999999,9.151072,pet_store
+304,"La Toelettatrice - Helen Manfrin - Lavaggio animali, Negozio animali, Tosatura a forbice, Stripping",ChIJKXm4RKDHhkcRO80xE02r06w,45.5006762,9.241275,pet_store
+305,Allevamento Del Bozzente,ChIJR11F95ORhkcR6euqcVDqOZc,45.6435208,8.984120099999998,pet_store
+306,Barriera Corallina,ChIJ57kz4-K7hkcRO2_1UyDwhD4,45.6079271,9.243903200000002,pet_store
+307,L'Isola Che Non C'è,ChIJiV0lAwjEhkcRi5zmvqyavxM,45.4487598,9.1790155,pet_store
+308,VET POINT SRL,ChIJo5o1dPKUhkcRrsN5wkyVzjo,45.5736111,9.0616667,pet_store
+309,Zoo Planet,ChIJ0c3kmCvChkcRVekQ78cUS8M,45.4285779,9.3701021,pet_store
+310,Senza Nodi - Toelettatura Professionale,ChIJAbhLjuDOhkcRLWc39dHI2v8,45.4281989,9.3157292,pet_store
+311,Luca Balletta Store,ChIJMY1lCr7GhkcROjLtaU_c-dc,45.4708333,9.207777799999999,pet_store
+312,Negozio di Animali WillyPet - Tutto per gli Animali Milano,ChIJF7TyQs_DhkcRo87pL2qzlMA,45.4488247,9.143476999999999,pet_store
+313,Testi Zoo Aquarium,ChIJpXy5bzTHhkcRZmhOdk5UWcs,45.5100512,9.202317099999998,pet_store
+314,Dogs & Co. Milano,ChIJPzGBRZPAhkcRGIzQ9FdiePQ,45.517145,9.1707296,pet_store
+315,Paradiso Piccoli Amici di Scrignari Roberto,ChIJ-XQEF3PAhkcR1YV7rpCkHrk,45.53197429999999,9.137341499999998,pet_store
+316,Maxi Zoo,ChIJ-e_POY_qhkcRu68FOioolVU,45.509306,9.091502000000002,pet_store
+317,La Fattoria degli Animali - Pianeta Gatto,ChIJqaV1WGq_hkcReBVx4OFGbBw,45.550924,9.186324,pet_store
+318,L'Isola Dei Tesori,ChIJqcJGuU3bhkcRn3eSpWsgqfU,45.3804458,9.170193700000002,pet_store
+319,Carpe Koi di Sarah Zambrino,ChIJU6d0c8vphkcRlVqvG54e9y4,45.4322805,9.061489800000002,pet_store
+320,Alcatraz,ChIJNwuVZSjBhkcRsSeGkcP7Z50,45.494689,9.182657999999998,night_club
+321,Old Fashion Club,ChIJwQQXkEXBhkcR6p1HGCVSK6I,45.4727971,9.173582800000002,night_club
+322,Hollywood Rythmoteque,ChIJpZVYcDPBhkcR6utGWupogUQ,45.48262699999999,9.187153,night_club
+323,NooN Restaurant & Cocktail Bar,ChIJsd5pEVDBhkcRO-QHXskjBbU,45.4678905,9.1746024,night_club
+324,Magazzini Generali,ChIJYXFLlxbEhkcRy6HCgDhwx0E,45.4443338,9.195067600000002,night_club
+325,Maison Milano,ChIJBxIcGHfEhkcR75R7luyxVg4,45.431908,9.177100999999999,night_club
+326,Il Gattopardo Cafè Disco,ChIJAeSKyhbBhkcRTkxtSeLosIc,45.48525050000001,9.1614232,night_club
+327,La Divina Club Privé,ChIJe4FkXdfGhkcRV4VCNW8h0ZQ,45.4911925,9.203374,night_club
+328,Nautilus Club Privé Milano,ChIJXzlWNgjHhkcRj0NrXgJayUk,45.5032077,9.2416772,night_club
+329,Just Cavalli Milano Restaurant & Club,ChIJySfaxEXBhkcRrFm_ZU5-z44,45.4729362,9.1732119,night_club
+330,LoolaPaloosa,ChIJpZVYcDPBhkcRAj1gQeYsh5g,45.4824635,9.1871256,night_club
+331,Goganga,ChIJd_u9SyzEhkcRkG5oAXkUZQA,45.446901,9.221547,night_club
+332,Le Banque,ChIJb6jYC63GhkcR1SwFZwg3Gdw,45.4662242,9.1869939,night_club
+333,puerto alegre club,ChIJa2l4chXEhkcR41fzA_nlXbc,45.4473587,9.1746578,night_club
+334,Madison,ChIJle09HBnEhkcRxtYpADmRfRI,45.4507833,9.199483299999999,night_club
+335,Sio Café,ChIJj4ljWs7GhkcRKTNgaPPuQRs,45.511814,9.209363999999999,night_club
+336,Factory,ChIJl_pGYmrGhkcRz2QTj3wZEy4,45.47104409999999,9.2527922,night_club
+337,Blue Note,ChIJKQXg_izBhkcRxzoUsizwFrc,45.4893632,9.188827999999999,night_club
+338,Lime Light Milan,ChIJW4jBYg_EhkcR9vd0p3G-NKY,45.4486642,9.1867457,night_club
+339,Tropicana Milan - Disco Theater - Disco - Dance Club,ChIJa3LIABvEhkcROQQJfG0Kkw0,45.450832,9.193622,night_club
+340,Orfeo Multisala,ChIJ_dilLOPDhkcRYbmHUnJZA6o,45.45694,9.169480000000002,movie_theater
+341,Cinema Teatro San Rocco,ChIJl9Bcafe8hkcR3P34UQNFRjQ,45.6500371,9.210529,movie_theater
+342,Artech Digital Cinema,ChIJJzINIIvHhkcRQUBS6YI2J7E,45.5248897,9.2716625,movie_theater
+343,Bloom,ChIJCSIrlzOyhkcRXARG7EBBfvQ,45.63114160000001,9.442024199999999,movie_theater
+344,Fac Milano S.R.L.,ChIJt04_ERHHhkcRwlB1cPL37TU,45.505529,9.228147200000002,movie_theater
+345,Gallery Institut français Milan,ChIJVTFPQFrBhkcRtbqaM048KJ4,45.46553650000001,9.171579200000002,movie_theater
+346,Dedalo Teatro,ChIJ7b3xYf3DhkcRvq3sGzeWMN0,45.4593342,9.172305999999999,movie_theater
+347,Multisala Colosseo,ChIJF0hryZjGhkcRTKus4DaqTH4,45.46164,9.207852400000002,movie_theater
+348,The Space Cinema,ChIJtTxBZRHFhkcRNb5WqdkLUgQ,45.38964499999999,9.178341099999999,movie_theater
+349,Emisfero Destro Teatro,ChIJEaj6Yd7JhkcRxKJ8BSLPYy8,45.514674,9.3616061,movie_theater
+350,Cinemeccanica S.P.A.,ChIJsYky8YXGhkcRJFxO-xYa3pI,45.42912979999999,9.393131,movie_theater
+351,Cinema Rondinella,ChIJNc4Eu724hkcRPMKoFLvXrIw,45.54346169999999,9.230733299999999,movie_theater
+352,SpazioAnteprima,ChIJa1_TlfiThkcRUnAQk3uE0pc,45.616148,9.029797,movie_theater
+353,Cinema Teatro Arcobaleno,ChIJqU2fBPzghkcRquxDzp2O_Jk,45.28920600000001,8.993736,movie_theater
+354,Jungle Beat Fun Location,ChIJT78ek0bChkcR_ihbw1niM8Y,45.4413185,9.114932999999999,movie_theater
+355,Cineteatro Edelweiss,ChIJn0p8-eukhkcRubrKgMeIPQ0,45.7019866,9.2894857,movie_theater
+356,FICTS - Federation Internationale Cinema Television Sportifs,ChIJTysExv_DhkcReaTSKr9fBFM,45.45790900000001,9.179491999999998,movie_theater
+357,Cinema Bianchini Splendido,ChIJg_rlOKfHhkcRcXaPBvFpgzc,45.4790632,9.2012865,movie_theater
+358,Cinema Bianchini,ChIJpybdTTLHhkcRaqsZ818tmOc,45.4790632,9.2012865,movie_theater
+359,Associazione Culturale Felix,ChIJf1DYyxDBhkcRV7maju-_gg0,45.4681896,9.1612688,movie_theater
+360,"IIS ""Gerolamo Cardano""",ChIJQdiKAbnBhkcREDkU6zbAOUg,45.488845,9.1243893,school
+361,Italian fashion school,ChIJlTVXtLrGhkcRipSoo8Bmejo,45.46718,9.197638999999999,school
+362,Inlingua Centrale,ChIJR1yxmtrGhkcRSxtXLbSfrCU,45.4874356,9.2035439,school
+363,C.F.P. Craftsmen Union,ChIJ7XOim2zEhkcRPZd6zWULNs0,45.4367486,9.191777499999999,school
+364,Liceo Scientifico Orsoline Di San Carlo,ChIJeZHnxlvBhkcRcvq9L6bI0wU,45.465581,9.16976,school
+365,ISTITUTO SAN GIUSEPPE LA SALLE MILANO,ChIJQ7cjGQjHhkcR4YXpLPCPNec,45.502608,9.241558000000001,school
+366,Fantasyclimbing associazione sportiva dilettantistica,ChIJS6w97tjDhkcRCdiz0aKei04,45.4595883,9.1508245,school
+367,Ni. Bo.,ChIJl-sfwxrEhkcRGI07EU-4NeA,45.4500779,9.1921378,school
+368,St. Louis School Caviglia,ChIJEbMAWqjGhkcRll4dVH2UoaU,45.443814,9.229757,school
+369,Happy Child,ChIJk_FsoNvAhkcRuToH2qDV3Rg,45.5038036,9.1805601,school
+370,Happy Child - Ripamonti,ChIJI59-ulvEhkcRrs-iRaJUHHo,45.4256499,9.2024706,school
+371,Asilo Nido I Monelli,ChIJxXy34f7IhkcRKSVA_YknQRQ,45.48252340000001,9.3253766,school
+372,Centro Ippico Scuderia Increa,ChIJ7VZmbf63hkcRiH2vK2U1q8M,45.52616279999999,9.301724000000002,school
+373,Istituto Tecnico Industriale Statale Galileo Galilei,ChIJQ1nA2ITBhkcRraLCh_vfq0s,45.47145829999999,9.1308004,school
+374,Riunite Mede Institutions,ChIJ25zCj3IPh0cRD-QQx1qB7OI,45.3118959,9.2606413,school
+375,Asilo Nido Bilingue 1 2 3 Stella- Baby School,ChIJl4aogpW9hkcRFbssGQ_OHRA,45.6338753,9.168284899999998,school
+376,Scuola Leonardo da Vinci Milano,ChIJiY8GhvbDhkcR7q5AKtDxI7s,45.452462,9.1965185,school
+377,CAPAM-C.F.P.Unione Artigiani,ChIJG1Ru82u5hkcRorWYr_KgDUc,45.5897885,9.2532307,school
+378,Lezioni di Canto Moderno,ChIJ9VGeb4nGhkcRiYSkEwhwm30,45.4677757,9.2295398,school
+379,Consorzio Didattico Europeo,ChIJ9R-3SKPGhkcRF0VifA0uyUY,45.4657672,9.203014399999999,school
+380,PiazzaLodi,ChIJUdJXaCXEhkcRmf7KH5lYZpU,45.44805139999999,9.2122545,shopping_mall
+381,Metropoli Centro commerciale,ChIJEyuw0GbAhkcRqYkZy5vTdsY,45.5197222,9.15,shopping_mall
+382,Centro Commerciale Auchan,ChIJXV_YPw7IhkcR9ej6jEhg8-g,45.5117765,9.302209799999998,shopping_mall
+383,Fiordaliso,ChIJj0CUmbDEhkcRtjfXkfH_O2Y,45.3915686,9.176448099999998,shopping_mall
+384,Centro Commerciale Carrefour di Limbiate,ChIJp43hKfqVhkcRtiD9GjlE7rs,45.6076657,9.1309756,shopping_mall
+385,Centro Commerciale Rescaldina,ChIJ07fPWBKShkcR77iNwdPnkcI,45.6098052,8.9639882,shopping_mall
+386,Centro Sarca,ChIJZYxHkVnHhkcRhOs0rC4Ry3s,45.52929959999999,9.2176226,shopping_mall
+387,Galleria Borromea Shopping Center,ChIJo2v22hPPhkcRd_4-c7loKZk,45.4231305,9.2937379,shopping_mall
+388,Bennet,ChIJHyrnhyu4hkcRtzcSXNTaH7k,45.55664869999999,9.3024228,shopping_mall
+389,D'Ambros Ipermercato - Turate (co),ChIJUZZujcGRhkcRyRKEKNSxd5I,45.6463889,8.980555599999999,shopping_mall
+390,Web Time Orologi - Outlet Orologi,ChIJa1gOFeHDhkcRSqZm-0DE5MU,45.4567694,9.162330100000002,shopping_mall
+391,Centro Commerciale Le Cupole,ChIJCV0UTyXOhkcRxAWY_1G681U,45.378891,9.3060856,shopping_mall
+392,new tess,ChIJwZ2MXw_BhkcRlSbwf3qpP_Q,45.4558055,9.1661728,shopping_mall
+393,The People'S Store,ChIJVcdwlz_EhkcRG6-gDgTjgko,45.439112,9.200971000000001,shopping_mall
+394,Iper La grande i - Milano Portello,ChIJb9PO9wfBhkcRWlu_ur023PE,45.4902902,9.1455057,shopping_mall
+395,Centro Commerciale Torribianche,ChIJsXt3hNGwhkcRd15SIV5fNFI,45.6015107,9.359701,shopping_mall
+396,La Corte Lombarda,ChIJ2TApowO1hkcRnvvncgLl1VE,45.5457255,9.4540987,shopping_mall
+397,Centro Commerciale Globo,ChIJE9QPsQazhkcRITxJJUD00KQ,45.62071189999999,9.47383,shopping_mall
+398,Complesso Commerciale di Corsico,ChIJ52BeVH7ChkcRl3yqovHg9eg,45.4317742,9.0811982,shopping_mall
+399,Viativoli - corso XXII Marzo angolo via Mancini,ChIJSQNW-azGhkcRtyalSiVcm0s,45.4622726,9.2097647,shopping_mall
+400,Peck,ChIJTVAKcKzGhkcRMs7mktXAZeM,45.4635189,9.1869577,supermarket
+401,Ipermercato Carrefour - Paderno Dugnano,ChIJHU1E4wC_hkcR4h-fm2efeK4,45.57380149999999,9.179787,supermarket
+402,Esselunga,ChIJ6XOH-L7GhkcRRqpGPu-eN_8,45.47289079999999,9.2069815,supermarket
+403,Auchan,ChIJefTjpHnChkcR1qFZUttpzbE,45.43523030000001,9.087698999999997,supermarket
+404,Il Gigante Supermercati,ChIJ2zt8iNvDhkcRW8ybpHFkMAk,45.4545278,9.1513433,supermarket
+405,Supermercato Carrefour Market,ChIJP2c0z9LDhkcRHlMUi8gEWxs,45.4548293,9.1356858,supermarket
+406,Carrefour Express,ChIJpwEyh8TGhkcRimMt8vSUYAI,45.4828324,9.2068661,supermarket
+407,Il Viaggiator Goloso,ChIJYdjkPWnBhkcRI1lKJl9luAY,45.473214,9.158683999999997,supermarket
+408,Zenmarket Japanese & Korean Foods,ChIJ-fb-P8PDhkcRm4OgD94n-wg,45.45861240000001,9.146830500000002,supermarket
+409,Esselunga,ChIJv2LesETGhkcR3ZZiTB_1pqQ,45.4780053,9.2470696,supermarket
+410,Lidl,ChIJoT3K9tbAhkcRRapSsJ-NWVc,45.4993174,9.1885437,supermarket
+411,Carrefour Market - Supermarket,ChIJl9XMKJTGhkcRL__lm6VHEiQ,45.4706986,9.212712,supermarket
+412,Pam,ChIJMeN6pFfBhkcR-CO_OUGLEmM,45.4612762,9.173043100000001,supermarket
+413,Esselunga,ChIJSyz6E-rAhkcRf3CWhaWr0-o,45.51237979999999,9.173460599999999,supermarket
+414,Esselunga,ChIJx5UKDefDhkcRtmcuMPh0cgQ,45.4545353,9.1619432,supermarket
+415,Iperal Seregno Via Fermi,ChIJbe7UHZ68hkcRBzvtkaC1dyY,45.63811810000001,9.2026568,supermarket
+416,Iperal Seregno Via Verdi,ChIJoaouMOC8hkcRYqiXAZhM990,45.66370610000001,9.2015894,supermarket
+417,Esselunga,ChIJawQRKizEhkcRo6kJ_MUHFpg,45.4500244,9.213653899999997,supermarket
+418,NaturaSì,ChIJN_kLLs7GhkcR7cNYPP5ubwU,45.4854192,9.198825900000001,supermarket
+419,Galleria Borromea Shopping Center,ChIJo2v22hPPhkcRd_4-c7loKZk,45.4231305,9.2937379,supermarket
+420,B&B Hotel Milano Monza,ChIJEVQ29kG5hkcRd_AtGfZcsuY,45.59015429999999,9.2485577,store
+421,B&B Hotel Milano Sesto,ChIJXSNcw2DHhkcRTIfhTxqed20,45.5269775,9.2295236,store
+422,California Bakery,ChIJs6BQZUrBhkcR2zi88W4fDXw,45.4767309,9.184025900000002,store
+423,Agriturismo Cascina Selva,ChIJB7BJ4UzkhkcRkSS8cGef8vk,45.36217239999999,8.937025199999999,store
+424,Corte Grande,ChIJlzlVXkjMhkcR74lvg95N8N4,45.41233,9.3801294,store
+425,Hotel Calais,ChIJl-u0ZmHBhkcR28m96mUOdeg,45.4640822,9.1548547,store
+426,MediaWorld Milano Rubattino,ChIJAw4efkTGhkcRMdU2WSFuufI,45.47957700000001,9.2464361,store
+427,MediaWorld Milano Via Troya,ChIJqQFhucLDhkcRVRZlZuc34Fc,45.4504014,9.154531600000002,store
+428,Apple Fiordaliso,ChIJZU2gsaTEhkcRRZRTOS8gWcA,45.392151,9.1748345,store
+429,MediaWorld Limbiate,ChIJAdgmG--VhkcR6fKkTzR_p80,45.6076372,9.1319833,store
+430,Unieuro,ChIJH1OBKlK5hkcRHXFS_ExBn8I,45.600317,9.230930299999999,store
+431,Bricocenter,ChIJexN8W4bGhkcRWnKmcYpJMGU,45.4622817,9.2261335,store
+432,Mondadori Megastore,ChIJzdPuO6zGhkcRbxZzDdg0kHs,45.4635774,9.1894319,store
+433,Peck,ChIJTVAKcKzGhkcRMs7mktXAZeM,45.4635189,9.1869577,store
+434,Ipermercato Carrefour - Paderno Dugnano,ChIJHU1E4wC_hkcR4h-fm2efeK4,45.57380149999999,9.179787,store
+435,Pisotti S.r.l.,ChIJhYsz0OjDhkcREOZeR66if60,45.44923559999999,9.161181100000002,store
+436,Euronics gruppo Nova,ChIJg-oFQSLEhkcRBK0FKk5vNVc,45.4506759,9.2040758,store
+437,Euronics Galimberti,ChIJxYC-GePDhkcRcQJlsX2Lr1g,45.4564107,9.1679707,store
+438,Wheelup Monza,ChIJTVTABmC3hkcRJFDhpnFtZH0,45.5798638,9.3149748,store
+439,Esselunga,ChIJ6XOH-L7GhkcRRqpGPu-eN_8,45.47289079999999,9.2069815,store
