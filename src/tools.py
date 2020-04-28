@@ -10,7 +10,7 @@ def add_extra_features(df_orig):
     df = df_orig.copy()
     colslist = ['ricoverati_con_sintomi','terapia_intensiva','totale_ospedalizzati','isolamento_domiciliare',
                 'totale_positivi','variazione_totale_positivi','nuovi_positivi',
-                'dimessi_guariti','deceduti','totale_casi','tamponi']
+                'dimessi_guariti','deceduti','totale_casi','tamponi','casi_testati']
     for col in colslist:
         if col in df.columns:
             if col == 'totale_casi':
@@ -18,10 +18,15 @@ def add_extra_features(df_orig):
             if col == 'deceduti':
                 df['deceduti_su_tot'] = df['deceduti'] / df['totale_casi']
                 df['deceduti_su_dimessi'] = df['deceduti'] / df['dimessi_guariti']
+            if col == 'casi_testati':
+                df['deceduti_su_casi_testati'] = df['deceduti']/df['casi_testati']
+                df['totale_casi_su_casi_testati'] = df['totale_casi']/df['casi_testati']
+                df['totale_ospedalizzati_su_casi_testati'] = df['totale_ospedalizzati'] /df['casi_testati']
             if col == 'tamponi':
                 df['totale_ospedalizzati_su_tamponi'] = df['totale_ospedalizzati'] / df['tamponi']
                 df['totale_casi_su_tamponi'] = df['totale_casi'] / df['tamponi']
                 df['deceduti_su_tamponi'] = df['deceduti'] / df['tamponi']
+                df['casi_testati_su_tamponi'] = df['casi_testati'] / df['tamponi']
             df['daily_'+col] = df[col].diff()
             df['%daily_'+ col] = df[col].diff()/df[col].shift()
 

@@ -21,8 +21,8 @@ def func_exp(x, a, b, c):
     # return a * np.exp(-b * x) + c
     return np.exp(a + b * x) + c
 
-def func_pol(x, a, b, c, d):
-    return (a * x ** 3) + (b * x ** 2) + (c * x) + d
+def func_pol(x, a, b, c, d, e):
+    return (e * np.power(x,4)) + (a * np.power(x,3)) + (b * np.power(x,2)) + (c * x) + d
 
 def func_dgomp(x, A, u, d, v, y0):
     yp1 = func_gomp(x+0.01 , A, u, d, v, y0)
