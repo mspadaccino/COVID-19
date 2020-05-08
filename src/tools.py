@@ -38,20 +38,21 @@ def add_extra_features(df_orig):
     return df
 
 def calculate_Rth(data, npt_rth = 4):
-    days_rth = list(range(npt_rth))
-    data['totale_positivi_slope'] = np.nan
-    data['dimessi_guariti_slope'] = np.nan
-    data['deceduti_slope'] = np.nan
-    data['r_th'] = np.nan
-    # import pdb; pdb.set_trace()
-    for i in range(npt_rth - 1, data.shape[0]):
-        i1 = i - npt_rth + 1
-        i2 = i + 1
-        data.loc[data.index[i],'totale_positivi_slope'] = scipy.stats.linregress(days_rth,data['totale_positivi'].iloc[i1:i2]).slope
-        data.loc[data.index[i],'dimessi_guariti_slope'] = scipy.stats.linregress(days_rth,data['dimessi_guariti'].iloc[i1:i2]).slope
-        data.loc[data.index[i],'deceduti_slope'] = scipy.stats.linregress(days_rth, data['deceduti'].iloc[i1:i2]).slope
-        data['r_th'] = ((data['totale_positivi_slope'] + data['dimessi_guariti_slope'] + data['deceduti_slope']) / (
-                    data['dimessi_guariti_slope'] + data['deceduti_slope'])).clip(0, 1000)
+    # days_rth = list(range(npt_rth))
+    # data['totale_positivi_slope'] = np.nan
+    # data['dimessi_guariti_slope'] = np.nan
+    # data['deceduti_slope'] = np.nan
+    # data['r_th'] = np.nan
+    # for i in range(npt_rth - 1, data.shape[0]):
+    #     i1 = i - npt_rth + 1
+    #     i2 = i + 1
+    #     data.loc[data.index[i],'totale_positivi_slope'] = scipy.stats.linregress(days_rth,data['totale_positivi'].iloc[i1:i2]).slope
+    #     data.loc[data.index[i],'dimessi_guariti_slope'] = scipy.stats.linregress(days_rth,data['dimessi_guariti'].iloc[i1:i2]).slope
+    #     data.loc[data.index[i],'deceduti_slope'] = scipy.stats.linregress(days_rth, data['deceduti'].iloc[i1:i2]).slope
+    #     data['r_th'] = ((data['totale_positivi_slope'] + data['dimessi_guariti_slope'] + data['deceduti_slope']) / (
+    #                 data['dimessi_guariti_slope'] + data['deceduti_slope'])).clip(0, 1000)
+    tempseries = data['nuovi_positivi'].rolling(npt_rth).sum()
+    data['r_th'] = 1+np.log(tempseries / tempseries.shift(npt_rth))
 
     return data['r_th'].replace(1000,np.nan).fillna(method='ffill')
 
