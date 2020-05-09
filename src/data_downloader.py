@@ -82,7 +82,7 @@ def convert_istat(dest):
     df_comuni_sett = pd.read_excel(os.path.join(dest, 'comuni_settimana.xlsx'))
     df_comuni_sett.to_csv('df_comuni_sett.csv')
 
-def get_dataframes(dest):
+def get_dataframes(dest, npt_rth=5, smooth=True):
     ############################ loading datasets ####################################################
     df_naz = pd.read_csv(os.path.join(dest,'dpc-covid19-ita-andamento-nazionale.csv')).drop('stato',1)
     print('last available date for Italy data',df_naz['data'].iloc[-1])
@@ -108,7 +108,8 @@ def get_dataframes(dest):
     for item in regions.groups:
         df_reg[item] = add_extra_features(regions.get_group(item)).replace((np.inf, np.nan), 0)
     for data in df_reg.keys():
-        df_reg[data]['Rth'] = calculate_Rth(df_reg[data],npt_rth=5)
+        df_reg[data]['Rth_1'] = calculate_Rth(df_reg[data],npt_rth=npt_rth, version=1)
+        df_reg[data]['Rth_2'] = calculate_Rth(df_reg[data], npt_rth=npt_rth, version=2, smooth=smooth)
     provinces = prov.groupby('sigla_provincia')
     df_prov = pd.DataFrame()
     for item in provinces.groups:
