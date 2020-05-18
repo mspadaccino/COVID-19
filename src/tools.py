@@ -32,8 +32,14 @@ def add_extra_features(df_orig):
                 df['casi_testati_su_tamponi'] = df['casi_testati'] / df['tamponi']
             df['daily_'+col] = df[col].diff()
             df['%daily_'+ col] = df[col].diff()/df[col].shift()
-    if 'nuovi_positivi' in df.columns: 
+    if 'nuovi_positivi' in df.columns:
         df['nuovi_positivi_su_daily_casi_testati'] = df['nuovi_positivi'] / df['daily_casi_testati']
+        df['daily_deceduti_su_nuovi_positivi@t-20'] = df['daily_deceduti'] / df['nuovi_positivi'].shift(20)
+    # if 'terapia_intensiva' in df.columns:
+    #     df['deceduti_su_terapia_intensiva@t-20'] = df['deceduti'] / df['terapia_intensiva'].shift(20)
+    #     df['deceduti_su_totale_ospedalizzati@t-20'] = df['deceduti'] / df['totale_ospedalizzati'].shift(20)
+
+
     if 'data' in df.columns:
         df['data'] = pd.to_datetime(df['data']).dt.strftime('%m/%d/%Y')
         df = df.set_index('data')
