@@ -24,52 +24,119 @@ if UPDATE_REPO:
 df_naz, reg, prov, df_reg, df_prov, df_world_confirmed, df_world_deaths, \
 df_world_recovered, populations, ita_populations, df_comuni_sett = get_dataframes(dest)
 
+def get_options(labels):
+    dict_list = []
+    for i in labels:
+        dict_list.append({'label': i, 'value': i})
+    return dict_list
+
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
 
-app.layout = html.Div([
-    dcc.Dropdown(
-        id='region',
-        options=[{'label': value, 'value': value} for value in df_reg.keys()],
-        value='Italy',
-        clearable=False,
-        multi=False
-    ),
-    dcc.Dropdown(
-        id='label',
-        options=[{'label': value, 'value': value} for value in df_reg['Italy'].columns],
-        value='nuovi_positivi',
-        clearable=False,
-        multi=False
-    ),
-    dcc.DatePickerSingle(
-        id='start_fit',
-        min_date_allowed=pd.to_datetime(df_naz.index[0]),
-        max_date_allowed=pd.to_datetime(df_naz.index[-1]),
-        date=pd.to_datetime(df_naz.index[0])
-    ),
-    dcc.DatePickerSingle(
-        id='end_fit',
-        min_date_allowed=pd.to_datetime(df_naz.index[0]),
-        max_date_allowed=pd.to_datetime(df_naz.index[-1]),
-        date=pd.to_datetime(df_naz.index[-1])
-    ),
-    dcc.Input(
-        id='forecast_periods',
-        value=90,
-        # type= 'int',
-        placeholder='forecasting period',
-    ),
-    dcc.Input(
-        id='smoothing',
-        value=1,
-        # type='int',
-        placeholder='smoothing days',
-    ),
-    dcc.Graph(
-        id='prophet-chart',
-    ),
-])
+app.layout = html.Div(children=[
+                                html.Div(
+                                    className='row',  # Define the row element
+                                    children=[
+                                        html.Div(
+                                            className='four columns div-user-controls',
+                                            children = [
+                                                html.H2('COVID19 Dashboard'),
+                                                html.P('''Monitoring SARS-COVID19 desease across Italy and the World'''),
+                                                html.P('''Select one of the analysis from below.'''),
+                                                dcc.Dropdown(
+                                                        id='region',
+                                                        options=[{'label': value, 'value': value} for value in df_reg.keys()],
+                                                        value='Italy',
+                                                        clearable=False,
+                                                        multi=False
+                                                    ),
+                                                    dcc.Dropdown(
+                                                        id='label',
+                                                        options=[{'label': value, 'value': value} for value in df_reg['Italy'].columns],
+                                                        value='nuovi_positivi',
+                                                        clearable=False,
+                                                        multi=False
+                                                    ),
+                                                    dcc.DatePickerSingle(
+                                                        id='start_fit',
+                                                        min_date_allowed=pd.to_datetime(df_naz.index[0]),
+                                                        max_date_allowed=pd.to_datetime(df_naz.index[-1]),
+                                                        date=pd.to_datetime(df_naz.index[0])
+                                                    ),
+                                                    dcc.DatePickerSingle(
+                                                        id='end_fit',
+                                                        min_date_allowed=pd.to_datetime(df_naz.index[0]),
+                                                        max_date_allowed=pd.to_datetime(df_naz.index[-1]),
+                                                        date=pd.to_datetime(df_naz.index[-1])
+                                                    ),
+                                                    dcc.Input(
+                                                        id='forecast_periods',
+                                                        value=90,
+                                                        # type= 'int',
+                                                        placeholder='forecasting period',
+                                                    ),
+                                                    dcc.Input(
+                                                        id='smoothing',
+                                                        value=1,
+                                                        # type='int',
+                                                        placeholder='smoothing days',
+                                                    )
+                                            ]
+                                        ),  # Define the left element
+                                        html.Div(
+                                            className='eight columns div-for-charts bg-grey',
+                                            children=[
+                                                dcc.Graph(
+                                                    id='prophet-chart',
+                                                ),
+                                            ]
+                                        )  # Define the right element
+                                    ])
+                                ])
+
+# app.layout = html.Div([
+#     dcc.Dropdown(
+#         id='region',
+#         options=[{'label': value, 'value': value} for value in df_reg.keys()],
+#         value='Italy',
+#         clearable=False,
+#         multi=False
+#     ),
+#     dcc.Dropdown(
+#         id='label',
+#         options=[{'label': value, 'value': value} for value in df_reg['Italy'].columns],
+#         value='nuovi_positivi',
+#         clearable=False,
+#         multi=False
+#     ),
+#     dcc.DatePickerSingle(
+#         id='start_fit',
+#         min_date_allowed=pd.to_datetime(df_naz.index[0]),
+#         max_date_allowed=pd.to_datetime(df_naz.index[-1]),
+#         date=pd.to_datetime(df_naz.index[0])
+#     ),
+#     dcc.DatePickerSingle(
+#         id='end_fit',
+#         min_date_allowed=pd.to_datetime(df_naz.index[0]),
+#         max_date_allowed=pd.to_datetime(df_naz.index[-1]),
+#         date=pd.to_datetime(df_naz.index[-1])
+#     ),
+#     dcc.Input(
+#         id='forecast_periods',
+#         value=90,
+#         # type= 'int',
+#         placeholder='forecasting period',
+#     ),
+#     dcc.Input(
+#         id='smoothing',
+#         value=1,
+#         # type='int',
+#         placeholder='smoothing days',
+#     ),
+#     dcc.Graph(
+#         id='prophet-chart',
+#     ),
+# ])
 
 
 @app.callback(
