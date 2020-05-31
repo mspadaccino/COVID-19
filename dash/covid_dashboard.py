@@ -8,7 +8,7 @@ from dash.dependencies import Input, Output
 from src.data_downloader import DATA_REPOS, download_from_repo, get_dataframes
 import plotly.graph_objects as go
 from fbprophet import Prophet
-
+from utils import get_options
 
 
 dest='../data'
@@ -24,11 +24,7 @@ if UPDATE_REPO:
 df_naz, reg, prov, df_reg, df_prov, df_world_confirmed, df_world_deaths, \
 df_world_recovered, populations, ita_populations, df_comuni_sett = get_dataframes(dest)
 
-def get_options(labels):
-    dict_list = []
-    for i in labels:
-        dict_list.append({'label': i, 'value': i})
-    return dict_list
+
 
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
@@ -45,7 +41,7 @@ app.layout = html.Div(children=[
                                                 html.P('''Select one of the analysis from below.'''),
                                                 dcc.Dropdown(
                                                         id='region',
-                                                        options=[{'label': value, 'value': value} for value in df_reg.keys()],
+                                                        options=get_options(df_reg.keys()),#[{'label': value, 'value': value} for value in df_reg.keys()],
                                                         value='Italy',
                                                         clearable=False,
                                                         multi=False
