@@ -73,17 +73,17 @@ app.layout = html.Div(children=[
     [
         Input(component_id='regions', component_property='value'),
         Input(component_id='labels', component_property='value'),
+        Input(component_id='log', component_property='value'),
     ]
 )
-def get_evo(regions, labels):
-    log=False
+def get_evo(regions, labels, log):
+    if log=='linear':
+        log=False
     relative_dates=False
     cases_per_mln_people=False
     plot_bars=True
     aggregate=False
     show_trend=True
-    print(regions)
-    print(labels)
 
     mult = 1.
     trace = []
