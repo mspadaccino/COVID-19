@@ -1,4 +1,5 @@
 import dash_core_components as dcc
+import dash_html_components as html
 import pandas as pd
 import yaml
 
@@ -20,27 +21,42 @@ def get_options(labels):
 
 def get_evo_controls(df_reg):
     controls = [
-        dcc.Dropdown(
-            id='regions',
-            options=get_options(df_reg.keys()),
-            value=['Italy'],
-            clearable=False,
-            multi=True
-        ),
-        dcc.Dropdown(
-            id='labels',
-            options=get_options(trend_labels),
-            value=['nuovi_positivi'],
-            clearable=False,
-            multi=True
-        ),
-        dcc.RadioItems(
-            id='log',
-            options=[
-                {'label': 'Linear', 'value': 'linear'},
-                {'label': 'Log-Linear', 'value': 'log'}
+        html.Div(
+            children=[
+            dcc.Dropdown(
+                id='regions',
+                options=get_options(df_reg.keys()),
+                value=['Italy'],
+                clearable=False,
+                multi=True
+            )
             ],
-            value='linear'
+            style = {'width': '25%', 'display': 'inline-block'}
+        ),
+        html.Div(
+            children=[
+            dcc.Dropdown(
+                id='labels',
+                options=get_options(trend_labels),
+                value=['nuovi_positivi'],
+                clearable=False,
+                multi=True
+            )
+            ],
+            style={'width': '25%', 'display': 'inline-block'}
+        ),
+        html.Div(
+            children=[
+            dcc.RadioItems(
+                id='log',
+                options=[
+                    {'label': 'Linear', 'value': 'linear'},
+                    {'label': 'Log-Linear', 'value': 'log'}
+                ],
+                value='linear'
+            ),
+            ],
+            style={'width': '25%', 'display': 'inline-block'}
         ),
         dcc.Graph(
             id='evo-chart',
@@ -91,6 +107,7 @@ def get_trend_controls(df_reg):
                 365: {'label': '365', 'style': {'color': '#77b0b1'}}
                       }
         ),
+        html.Div(id='updatemode-output-container', style={'margin-top': 20}),
         dcc.Input(
             id='smoothing',
             value=1,
