@@ -1,0 +1,54 @@
+LABELS:
+  orig_data_columns:
+    - ricoverati_con_sintomi
+    - terapia_intensiva
+    - totale_ospedalizzati
+    - isolamento_domiciliare
+    - totale_positivi
+    - nuovi_positivi
+    - dimessi_guariti
+    - deceduti
+    - totale_casi
+    - tamponi
+    - casi_testati
+
+  extra_data_columns:
+    - Rth_1
+    - Rth_2
+    - growth_factor
+    - deceduti_su_tot
+    - deceduti_su_dimessi
+    - totale_casi_su_tamponi
+    - totale_ospedalizzati_su_tamponi
+    - deceduti_su_tamponi
+    - casi_testati_su_tamponi
+    - deceduti_su_casi_testati
+    - totale_casi_su_casi_testati
+    - totale_ospedalizzati_su_casi_testati
+    - nuovi_positivi_su_daily_casi_testati
+
+  prov_data_columns:
+    - totale_casi
+    - daily_totale_casi
+    - '%daily_totale_casi'
+    - growth_factor
+
+  countries_labels:
+    - confirmed
+    - recovered
+    - deaths
+    - daily_confirmed
+    - daily_recovered
+    - daily_deaths
+    - '%daily_confirmed'
+    - '%daily_recovered'
+    - '%daily_deaths'
+
+  trend_labels:
+    - nuovi_positivi
+    - daily_deceduti
+    - ricoverati_con_sintomi
+    - terapia_intensiva
+    - totale_ospedalizzati
+    - isolamento_domiciliare
+    - Rth
