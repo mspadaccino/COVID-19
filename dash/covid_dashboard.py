@@ -35,48 +35,64 @@ app.layout = html.Div(children=[
                                     children=[
                                         html.Div(
                                             className='four columns div-user-controls',
-                                            children = [
-                                                html.H2('COVID19 Dashboard'),
+                                            children=[
+                                                html.H1('COVID19 Dashboard'),
                                                 html.P('''Monitoring SARS-COVID19 desease across Italy and the World'''),
                                                 html.P('''Select one of the analysis from below.'''),
-                                                dcc.Dropdown(
-                                                        id='region',
-                                                        options=get_options(df_reg.keys()),#[{'label': value, 'value': value} for value in df_reg.keys()],
-                                                        value='Italy',
-                                                        clearable=False,
-                                                        multi=False
-                                                    ),
-                                                    dcc.Dropdown(
-                                                        id='label',
-                                                        options=[{'label': value, 'value': value} for value in df_reg['Italy'].columns],
-                                                        value='nuovi_positivi',
-                                                        clearable=False,
-                                                        multi=False
-                                                    ),
-                                                    dcc.DatePickerSingle(
-                                                        id='start_fit',
-                                                        min_date_allowed=pd.to_datetime(df_naz.index[0]),
-                                                        max_date_allowed=pd.to_datetime(df_naz.index[-1]),
-                                                        date=pd.to_datetime(df_naz.index[0])
-                                                    ),
-                                                    dcc.DatePickerSingle(
-                                                        id='end_fit',
-                                                        min_date_allowed=pd.to_datetime(df_naz.index[0]),
-                                                        max_date_allowed=pd.to_datetime(df_naz.index[-1]),
-                                                        date=pd.to_datetime(df_naz.index[-1])
-                                                    ),
-                                                    dcc.Input(
-                                                        id='forecast_periods',
-                                                        value=90,
-                                                        # type= 'int',
-                                                        placeholder='forecasting period',
-                                                    ),
-                                                    dcc.Input(
-                                                        id='smoothing',
-                                                        value=1,
-                                                        # type='int',
-                                                        placeholder='smoothing days',
-                                                    )
+                                                # Dividing the dashboard in tabs
+                                                dcc.Tabs(
+                                                    id="tabs",
+                                                    children=[# Defining the layout of the first Tab
+                                                        dcc.Tab(
+                                                            label='Italy',
+                                                            children=[
+                                                                dcc.Dropdown(
+                                                                    id='region',
+                                                                    options=get_options(df_reg.keys()),
+                                                                    # [{'label': value, 'value': value} for value in df_reg.keys()],
+                                                                    value='Italy',
+                                                                    clearable=False,
+                                                                    multi=False
+                                                                ),
+                                                                dcc.Dropdown(
+                                                                    id='label',
+                                                                    options=[{'label': value, 'value': value} for value
+                                                                             in df_reg['Italy'].columns],
+                                                                    value='nuovi_positivi',
+                                                                    clearable=False,
+                                                                    multi=False
+                                                                ),
+                                                                dcc.DatePickerSingle(
+                                                                    id='start_fit',
+                                                                    min_date_allowed=pd.to_datetime(df_naz.index[0]),
+                                                                    max_date_allowed=pd.to_datetime(df_naz.index[-1]),
+                                                                    date=pd.to_datetime(df_naz.index[0])
+                                                                ),
+                                                                dcc.DatePickerSingle(
+                                                                    id='end_fit',
+                                                                    min_date_allowed=pd.to_datetime(df_naz.index[0]),
+                                                                    max_date_allowed=pd.to_datetime(df_naz.index[-1]),
+                                                                    date=pd.to_datetime(df_naz.index[-1])
+                                                                ),
+                                                                dcc.Input(
+                                                                    id='forecast_periods',
+                                                                    value=90,
+                                                                    # type= 'int',
+                                                                    placeholder='forecasting period',
+                                                                ),
+                                                                dcc.Input(
+                                                                    id='smoothing',
+                                                                    value=1,
+                                                                    # type='int',
+                                                                    placeholder='smoothing days',
+                                                                )
+                                                            ]
+                                                        ),
+                                                        dcc.Tab(
+                                                            label='World',
+                                                        )
+                                                    ]
+                                                )
                                             ]
                                         ),  # Define the left element
                                         html.Div(
