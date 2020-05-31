@@ -37,7 +37,7 @@ def get_evo_controls(df_reg):
             children=[
             dcc.Dropdown(
                 id='labels',
-                options=get_options(trend_labels),
+                options=get_options(orig_data_columns+delta_data_columns+percent_delta_data_columns),
                 value=['nuovi_positivi'],
                 clearable=False,
                 multi=True
@@ -50,13 +50,65 @@ def get_evo_controls(df_reg):
             dcc.RadioItems(
                 id='log',
                 options=[
-                    {'label': 'Linear', 'value': 'linear'},
-                    {'label': 'Log-Linear', 'value': 'log'}
+                    {'label': 'Linear', 'value': 'False'},
+                    {'label': 'Log', 'value': 'True'}
                 ],
-                value='linear'
+                value='False'
             ),
             ],
-            style={'width': '25%', 'display': 'inline-block'}
+            style={'width': '10%', 'display': 'inline-block'}
+        ),
+        html.Div(
+            children=[
+                dcc.RadioItems(
+                    id='cases_per_mln_people',
+                    options=[
+                        {'label': 'per mln', 'value': 'True'},
+                        {'label': 'absolute', 'value': 'False'}
+                    ],
+                    value='False'
+                ),
+            ],
+            style={'width': '10%', 'display': 'inline-block'}
+        ),
+        html.Div(
+            children=[
+                dcc.RadioItems(
+                    id='plot_bars',
+                    options=[
+                        {'label': 'bars', 'value': 'True'},
+                        {'label': 'lines', 'value': 'False'}
+                    ],
+                    value='False'
+                ),
+            ],
+            style={'width': '10%', 'display': 'inline-block'}
+        ),
+        html.Div(
+            children=[
+                dcc.RadioItems(
+                    id='relative_dates',
+                    options=[
+                        {'label': 'relative dates', 'value': 'True'},
+                        {'label': 'absolute dates', 'value': 'False'}
+                    ],
+                    value='False'
+                ),
+            ],
+            style={'width': '10%', 'display': 'inline-block'}
+        ),
+        html.Div(
+            children=[
+                dcc.RadioItems(
+                    id='aggregate',
+                    options=[
+                        {'label': 'data per region', 'value': 'False'},
+                        {'label': 'cumulated', 'value': 'True'},
+                    ],
+                    value='False'
+                ),
+            ],
+            style={'width': '10%', 'display': 'inline-block'}
         ),
         dcc.Graph(
             id='evo-chart',
@@ -67,33 +119,53 @@ def get_evo_controls(df_reg):
 
 def get_trend_controls(df_reg):
     controls = [
-        dcc.Dropdown(
-            id='region',
-            options=get_options(df_reg.keys()),
-            value='Italy',
-            clearable=False,
-            multi=False
+        html.Div(
+            children=[
+            dcc.Dropdown(
+                id='region',
+                options=get_options(df_reg.keys()),
+                value='Italy',
+                clearable=False,
+                multi=False
+            ),
+            ],
+            style={'width': '20%', 'display': 'inline-block'}
         ),
-        dcc.Dropdown(
-            id='label',
-            options=get_options(trend_labels),
-            value='nuovi_positivi',
-            clearable=False,
-            multi=False
+        html.Div(
+            children=[
+            dcc.Dropdown(
+                id='label',
+                options=get_options(trend_labels),
+                value='nuovi_positivi',
+                clearable=False,
+                multi=False
+            ),
+            ],
+            style={'width': '20%', 'display': 'inline-block'}
         ),
-        dcc.DatePickerSingle(
-            id='start_fit',
-            min_date_allowed=pd.to_datetime(
-                df_reg['Italy'].index[0]),
-            max_date_allowed=pd.to_datetime(
-                df_reg['Italy'].index[-1]),
-            date=pd.to_datetime(df_reg['Italy'].index[0])
+        html.Div(
+            children=[
+            dcc.DatePickerSingle(
+                id='start_fit',
+                min_date_allowed=pd.to_datetime(
+                    df_reg['Italy'].index[0]),
+                max_date_allowed=pd.to_datetime(
+                    df_reg['Italy'].index[-1]),
+                date=pd.to_datetime(df_reg['Italy'].index[0])
+            ),
+            ],
+            style={'width': '20%', 'display': 'inline-block'}
         ),
-        dcc.DatePickerSingle(
-            id='end_fit',
-            min_date_allowed=pd.to_datetime(df_reg['Italy'].index[0]),
-            max_date_allowed=pd.to_datetime(df_reg['Italy'].index[-1]),
-            date=pd.to_datetime(df_reg['Italy'].index[-1])
+        html.Div(
+            children=[
+            dcc.DatePickerSingle(
+                id='end_fit',
+                min_date_allowed=pd.to_datetime(df_reg['Italy'].index[0]),
+                max_date_allowed=pd.to_datetime(df_reg['Italy'].index[-1]),
+                date=pd.to_datetime(df_reg['Italy'].index[-1])
+            ),
+            ],
+            style={'width': '20%', 'display': 'inline-block'}
         ),
         dcc.Slider(
             id='forecast_periods',

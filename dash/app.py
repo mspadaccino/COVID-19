@@ -26,7 +26,6 @@ app.layout = html.Div(children=[
         className='row',  # Define the row element
         children=[
             html.Div(
-
                 # className='eight columns div-for-charts bg-grey',
                 children=[
                     html.H1('COVID19 Dashboard'),
@@ -81,16 +80,18 @@ def display_value(forecast_periods):
         Input(component_id='regions', component_property='value'),
         Input(component_id='labels', component_property='value'),
         Input(component_id='log', component_property='value'),
+        Input(component_id='cases_per_mln_people', component_property='value'),
+        Input(component_id='plot_bars', component_property='value'),
+        Input(component_id='relative_dates', component_property='value'),
+        Input(component_id='aggregate', component_property='value'),
     ]
 )
-def get_evo(regions, labels, log):
-    if log == 'linear':
-        log = False
-    relative_dates = False
-    cases_per_mln_people = False
-    plot_bars = True
-    aggregate = False
-    show_trend = True
+def get_evo(regions, labels, log, cases_per_mln_people, plot_bars, relative_dates, aggregate):
+    log = True if log == 'True' else False
+    relative_dates = False if relative_dates == 'False' else True
+    cases_per_mln_people = False if cases_per_mln_people == 'False' else True
+    plot_bars = True if plot_bars == 'True' else False
+    aggregate = False if aggregate == 'False' else True
 
     mult = 1.
     trace = []
@@ -111,10 +112,7 @@ def get_evo(regions, labels, log):
                 trace.append(go.Bar(x=temp.index, y=temp[item] * mult, name=item + '_' + '-'.join(regions)))
             else:
                 trace.append(go.Scatter(x=temp.index, y=temp[item] * mult, name=item + '_' + '-'.join(regions)))
-            if show_trend:
-                trace.append(go.Scatter(x=pd.date_range(start=temp.index.min(), end=temp.index.max()),
-                                        y=temp['mov_avg_7d'].values, name=item + '_wkly_trend', mode='lines',
-                                        line=dict(color='black', width=.45, dash='dot')))
+
         else:
             for region in regions:
                 if cases_per_mln_people:
@@ -128,16 +126,13 @@ def get_evo(regions, labels, log):
                     trace.append(go.Bar(x=temp.index, y=temp[item] * mult, name=item + '_' + region))
                 else:
                     trace.append(go.Scatter(x=temp.index, y=temp[item] * mult, name=item + '_' + region))
-                if show_trend:
-                    trace.append(go.Scatter(x=pd.date_range(start=temp.index.min(), end=temp.index.max()),
-                                            y=temp['mov_avg_7d'].values, name=item + '_wkly_trend', mode='lines',
-                                            line=dict(color='black', width=.45, dash='dot')))
+
 
     traces = [trace]
     data = [val for sublist in traces for val in sublist]
     figure = {'data': data,
               'layout': go.Layout(
-                  title={'text': 'test2', 'xanchor': 'left'},
+                  title={'text': 'Evolution analysis for Italy', 'xanchor': 'left'},
                   showlegend=True, paper_bgcolor='rgba(0,0,0,0)', font=dict(color='lightgray'),
                   plot_bgcolor='rgba(0,0,0,0)',
                   yaxis_type="log" if log else None
@@ -193,7 +188,9 @@ def get_forecast(region, label, start_fit, end_fit, forecast_periods, smoothing)
     data = [val for sublist in traces for val in sublist]
     figure = {'data': data,
               'layout': go.Layout(
-                  title={'text': label.replace('_', ' ') + ' for ' + region, 'xanchor': 'left'}
+                  title={'text': label.replace('_', ' ') + ' for ' + region, 'xanchor': 'left'},
+                  showlegend=True, paper_bgcolor='rgba(0,0,0,0)', font=dict(color='lightgray'),
+                  plot_bgcolor='rgba(0,0,0,0)',
               ),
               }
 
