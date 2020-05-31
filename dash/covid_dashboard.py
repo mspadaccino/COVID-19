@@ -8,7 +8,7 @@ from dash.dependencies import Input, Output
 from src.data_downloader import DATA_REPOS, download_from_repo, get_dataframes
 import plotly.graph_objects as go
 from fbprophet import Prophet
-from utils import get_options
+from controls import get_trend_controls
 
 
 dest='../data'
@@ -51,59 +51,11 @@ app.layout = html.Div(children=[
                                                                     children=[
                                                                         dcc.Tab(
                                                                             label='trend',
-                                                                            children=[
-                                                                                dcc.Dropdown(
-                                                                                    id='region',
-                                                                                    options=get_options(df_reg.keys()),
-                                                                                    # [{'label': value, 'value': value} for value in df_reg.keys()],
-                                                                                    value='Italy',
-                                                                                    clearable=False,
-                                                                                    multi=False
-                                                                                ),
-                                                                                dcc.Dropdown(
-                                                                                    id='label',
-                                                                                    options=[{'label': value, 'value': value}
-                                                                                             for value
-                                                                                             in df_reg['Italy'].columns],
-                                                                                    value='nuovi_positivi',
-                                                                                    clearable=False,
-                                                                                    multi=False
-                                                                                ),
-                                                                                dcc.DatePickerSingle(
-                                                                                    id='start_fit',
-                                                                                    min_date_allowed=pd.to_datetime(
-                                                                                        df_naz.index[0]),
-                                                                                    max_date_allowed=pd.to_datetime(
-                                                                                        df_naz.index[-1]),
-                                                                                    date=pd.to_datetime(df_naz.index[0])
-                                                                                ),
-                                                                                dcc.DatePickerSingle(
-                                                                                    id='end_fit',
-                                                                                    min_date_allowed=pd.to_datetime(
-                                                                                        df_naz.index[0]),
-                                                                                    max_date_allowed=pd.to_datetime(
-                                                                                        df_naz.index[-1]),
-                                                                                    date=pd.to_datetime(df_naz.index[-1])
-                                                                                ),
-                                                                                dcc.Input(
-                                                                                    id='forecast_periods',
-                                                                                    value=90,
-                                                                                    # type= 'int',
-                                                                                    placeholder='forecasting period',
-                                                                                ),
-                                                                                dcc.Input(
-                                                                                    id='smoothing',
-                                                                                    value=1,
-                                                                                    # type='int',
-                                                                                    placeholder='smoothing days',
-                                                                                )
-                                                                            ]
+                                                                            children=get_trend_controls(df_reg)
                                                                         )
                                                                     ]
                                                                 )
                                                             ]
-
-
                                                         ),
                                                         dcc.Tab(
                                                             label='World',
