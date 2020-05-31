@@ -18,6 +18,37 @@ def get_options(labels):
     return dict_list
 
 
+def get_evo_controls(df_reg):
+    controls = [
+        dcc.Dropdown(
+            id='regions',
+            options=get_options(df_reg.keys()),
+            value=['Italy'],
+            clearable=False,
+            multi=True
+        ),
+        dcc.Dropdown(
+            id='labels',
+            options=get_options(trend_labels),
+            value=['nuovi_positivi'],
+            clearable=False,
+            multi=True
+        ),
+        dcc.RadioItems(
+            id='log',
+            options=[
+                {'label': 'Linear', 'value': 'linear'},
+                {'label': 'Log-Linear', 'value': 'log'}
+            ],
+            value='linear'
+        ),
+        dcc.Graph(
+            id='evo-chart',
+        )
+    ]
+    return controls
+
+
 def get_trend_controls(df_reg):
     controls = [
         dcc.Dropdown(
@@ -59,6 +90,9 @@ def get_trend_controls(df_reg):
             value=1,
             # type='int',
             placeholder='smoothing days',
+        ),
+        dcc.Graph(
+            id='trend-chart',
         )
     ]
     return controls

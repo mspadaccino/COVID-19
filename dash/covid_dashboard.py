@@ -8,7 +8,7 @@ from dash.dependencies import Input, Output
 from src.data_downloader import get_dataframes, update_repos
 import plotly.graph_objects as go
 from fbprophet import Prophet
-from controls import get_trend_controls
+from controls import get_trend_controls, get_evo_controls
 
 dest = '../data'
 
@@ -26,11 +26,11 @@ app.layout = html.Div(children=[
         className='row',  # Define the row element
         children=[
             html.Div(
-                className='four columns div-user-controls',
+                className='eight columns div-for-charts bg-grey',
                 children=[
                     html.H1('COVID19 Dashboard'),
                     html.P('''Monitoring SARS-COVID19 desease across Italy and the World'''),
-                    html.P('''Select one of the analysis from below.'''),
+                    # html.P('''Select one of the analysis from below.'''),
                     # Dividing the dashboard in tabs
                     dcc.Tabs(
                         id="main-tabs",
@@ -43,7 +43,7 @@ app.layout = html.Div(children=[
                                         children=[
                                             dcc.Tab(
                                                 label='Data Evolution',
-                                                children=[]
+                                                children=get_evo_controls(df_reg),
                                             ),
                                             dcc.Tab(
                                                 label='Forecast',
@@ -61,23 +61,85 @@ app.layout = html.Div(children=[
                                 label='World',
                             )
                         ]
-                    )
-                ]
-            ),  # Define the left element
-            html.Div(
-                className='eight columns div-for-charts bg-grey',
-                children=[
-                    dcc.Graph(
-                        id='main-chart',
                     ),
+
                 ]
             )  # Define the right element
         ])
 ])
 
+@app.callback(
+    Output(component_id='evo-chart', component_property='figure'),
+    [
+        Input(component_id='regions', component_property='value'),
+        Input(component_id='labels', component_property='value'),
+    ]
+)
+def get_evo(regions, labels):
+    log=False
+    relative_dates=False
+    cases_per_mln_people=False
+    plot_bars=True
+    aggregate=False
+    show_trend=True
+    print(regions)
+    print(labels)
+
+    mult = 1.
+    trace = []
+    for item in labels:
+        if aggregate:
+            if cases_per_mln_people:
+                mult = 1e06 / ita_populations.loc[regions, 'Popolazione'].sum()
+            temp = df_reg[regions[0]][item].copy()
+            for region in regions[1:]:
+                temp = temp.add(df_reg[region][item])
+            if item == 'Rth':
+                if (len(regions[1:])) > 0:
+                    temp = temp / len(regions[1:])
+            temp = pd.DataFrame(temp)
+            if relative_dates: temp = temp.loc[~(temp[item] == 0)].reset_index(drop=True).iloc[:-1]
+            temp['mov_avg_7d'] = temp.rolling(7).mean().shift(-0)
+            if plot_bars:
+                trace.append(go.Bar(x=temp.index, y=temp[item] * mult, name=item + '_' + '-'.join(regions)))
+            else:
+                trace.append(go.Scatter(x=temp.index, y=temp[item] * mult, name=item + '_' + '-'.join(regions)))
+            if show_trend:
+                trace.append(go.Scatter(x=pd.date_range(start=temp.index.min(), end=temp.index.max()),
+                                          y=temp['mov_avg_7d'].values, name=item + '_wkly_trend', mode='lines',
+                                          line=dict(color='black', width=.45, dash='dot')))
+        else:
+            for region in regions:
+                if cases_per_mln_people:
+                    mult = 1e06 / ita_populations.loc[region, 'Popolazione']
+                df_reg[region].index = pd.to_datetime(df_reg[region].index)
+                temp = df_reg[region]
+                temp['mov_avg_7d'] = temp[item].rolling(7).mean().shift(-0)
+                if relative_dates: temp = temp.loc[~(temp[item] == 0)].reset_index(drop=True).iloc[:-1]
+
+                if plot_bars:
+                    trace.append(go.Bar(x=temp.index, y=temp[item] * mult, name=item + '_' + region))
+                else:
+                    trace.append(go.Scatter(x=temp.index, y=temp[item] * mult, name=item + '_' + region))
+                if show_trend:
+                    trace.append(go.Scatter(x=pd.date_range(start=temp.index.min(), end=temp.index.max()),
+                                              y=temp['mov_avg_7d'].values, name=item + '_wkly_trend', mode='lines',
+                                              line=dict(color='black', width=.45, dash='dot')))
+
+    traces = [trace]
+    data = [val for sublist in traces for val in sublist]
+    figure = {'data': data,
+              'layout': go.Layout(
+                  title={'text': 'test2', 'xanchor': 'left'},
+                  showlegend=True, paper_bgcolor='rgba(0,0,0,0)', font=dict(color='lightgray'),
+                  plot_bgcolor='rgba(0,0,0,0)',
+                  yaxis_type="log" if log else None
+              ),
+              }
+    return figure
 
 @app.callback(
-    Output(component_id='main-chart', component_property='figure'),
+    Output(component_id='trend-chart', component_property='figure'),
     [
         Input(component_id='region', component_property='value'),
         Input(component_id='label', component_property='value'),
