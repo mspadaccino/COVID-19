@@ -21,7 +21,9 @@ df_world_recovered, populations, ita_populations, df_comuni_sett = get_dataframe
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
 
-app.layout = html.Div(children=[
+app.layout = html.Div(
+    id='main',
+    children=[
     html.Div(
         className='row',  # Define the row element
         children=[
@@ -30,6 +32,13 @@ app.layout = html.Div(children=[
                 children=[
                     html.H1('COVID19 Dashboard'),
                     html.P('''Monitoring SARS-COVID19 desease across Italy and the World'''),
+                    html.Div(
+                        id='div_button',
+                        children=[
+                            html.Button('Update Repo', id='update-button'),
+                        ],
+                        style={'display': 'flex', 'verticalAlign':"middle", "horizontalAlign": "center"},
+                    ),
                     # html.P('''Select one of the analysis from below.'''),
                     # Dividing the dashboard in tabs
                     dcc.Tabs(
@@ -67,6 +76,12 @@ app.layout = html.Div(children=[
         ])
 ])
 
+@app.callback(Output(component_id='div_button', component_property='children'),
+              [Input('update-button', 'n_clicks')])
+def on_click(n_clicks):
+    # if not n_clicks:
+        # update_repos(dest)
+    return print(n_clicks)
 
 @app.callback(Output(component_id='updatemode-output-container', component_property='children'),
               [Input(component_id='forecast_periods', component_property='value')])
@@ -126,7 +141,6 @@ def get_evo(regions, labels, log, cases_per_mln_people, plot_bars, relative_date
                     trace.append(go.Bar(x=temp.index, y=temp[item] * mult, name=item + '_' + region))
                 else:
                     trace.append(go.Scatter(x=temp.index, y=temp[item] * mult, name=item + '_' + region))
-
 
     traces = [trace]
     data = [val for sublist in traces for val in sublist]
