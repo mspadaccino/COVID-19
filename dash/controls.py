@@ -11,6 +11,9 @@ with open("columns_names.yaml", 'r') as stream:
 delta_data_columns = ['daily_' + item for item in orig_data_columns]
 percent_delta_data_columns = ['%daily_' + item for item in orig_data_columns]
 
+mystyle_trend = {'width': '20%', 'display': 'inline-block', 'verticalAlign':"middle"}
+mystyle_evo1 = {'width': '20%', 'display': 'inline-block', 'verticalAlign':"middle"}
+mystyle_evo2 = {'width': '10%', 'display': 'inline-block', 'verticalAlign':"middle"}
 
 def get_options(labels):
     dict_list = []
@@ -31,7 +34,7 @@ def get_evo_controls(df_reg):
                 multi=True
             )
             ],
-            style = {'width': '25%', 'display': 'inline-block'}
+            style=mystyle_evo1
         ),
         html.Div(
             children=[
@@ -43,7 +46,7 @@ def get_evo_controls(df_reg):
                 multi=True
             )
             ],
-            style={'width': '25%', 'display': 'inline-block'}
+            style=mystyle_evo1
         ),
         html.Div(
             children=[
@@ -56,7 +59,7 @@ def get_evo_controls(df_reg):
                 value='False'
             ),
             ],
-            style={'width': '10%', 'display': 'inline-block'}
+            style=mystyle_evo2
         ),
         html.Div(
             children=[
@@ -69,7 +72,7 @@ def get_evo_controls(df_reg):
                     value='False'
                 ),
             ],
-            style={'width': '10%', 'display': 'inline-block'}
+            style=mystyle_evo2
         ),
         html.Div(
             children=[
@@ -82,7 +85,7 @@ def get_evo_controls(df_reg):
                     value='False'
                 ),
             ],
-            style={'width': '10%', 'display': 'inline-block'}
+            style=mystyle_evo2
         ),
         html.Div(
             children=[
@@ -95,7 +98,7 @@ def get_evo_controls(df_reg):
                     value='False'
                 ),
             ],
-            style={'width': '10%', 'display': 'inline-block'}
+            style=mystyle_evo2
         ),
         html.Div(
             children=[
@@ -108,7 +111,7 @@ def get_evo_controls(df_reg):
                     value='False'
                 ),
             ],
-            style={'width': '10%', 'display': 'inline-block'}
+            style=mystyle_evo2
         ),
         dcc.Graph(
             id='evo-chart',
@@ -129,7 +132,7 @@ def get_trend_controls(df_reg):
                 multi=False
             ),
             ],
-            style={'width': '20%', 'display': 'inline-block'}
+            style=mystyle_trend
         ),
         html.Div(
             children=[
@@ -141,43 +144,39 @@ def get_trend_controls(df_reg):
                 multi=False
             ),
             ],
-            style={'width': '20%', 'display': 'inline-block'}
+            style=mystyle_trend
         ),
         html.Div(
             children=[
-            dcc.DatePickerSingle(
-                id='start_fit',
-                min_date_allowed=pd.to_datetime(
-                    df_reg['Italy'].index[0]),
-                max_date_allowed=pd.to_datetime(
-                    df_reg['Italy'].index[-1]),
-                date=pd.to_datetime(df_reg['Italy'].index[0])
-            ),
+                dcc.DatePickerRange(
+                    id='fit_picker',
+                    min_date_allowed=pd.to_datetime(
+                        df_reg['Italy'].index[0]),
+                    max_date_allowed=pd.to_datetime(
+                        df_reg['Italy'].index[-1]),
+                    start_date=pd.to_datetime(df_reg['Italy'].index[0]),
+                    end_date=pd.to_datetime(df_reg['Italy'].index[-10])
+                ),
             ],
-            style={'width': '20%', 'display': 'inline-block'}
+            style=mystyle_trend
         ),
         html.Div(
             children=[
-            dcc.DatePickerSingle(
-                id='end_fit',
-                min_date_allowed=pd.to_datetime(df_reg['Italy'].index[0]),
-                max_date_allowed=pd.to_datetime(df_reg['Italy'].index[-1]),
-                date=pd.to_datetime(df_reg['Italy'].index[-1])
-            ),
+                dcc.Slider(
+                    id='forecast_periods',
+                    tooltip={'always_visible': False},
+                    min=0,
+                    max=365,
+                    step=1,
+                    value=90,
+                    marks={
+                        0: {'label': '0 days', 'style': {'color': '#77b0b1'}},
+                        100: {'label': '100', 'style': {'color': '#77b0b1'}},
+                        365: {'label': '365', 'style': {'color': '#77b0b1'}}
+                              }
+                )
             ],
-            style={'width': '20%', 'display': 'inline-block'}
-        ),
-        dcc.Slider(
-            id='forecast_periods',
-            min=0,
-            max=365,
-            step=1,
-            value=90,
-            marks={
-                0: {'label': '0 days', 'style': {'color': '#77b0b1'}},
-                100: {'label': '100', 'style': {'color': '#77b0b1'}},
-                365: {'label': '365', 'style': {'color': '#77b0b1'}}
-                      }
+            style = mystyle_trend
         ),
         html.Div(id='updatemode-output-container', style={'margin-top': 20}),
         dcc.Input(

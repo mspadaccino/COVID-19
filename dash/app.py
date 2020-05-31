@@ -146,8 +146,8 @@ def get_evo(regions, labels, log, cases_per_mln_people, plot_bars, relative_date
     [
         Input(component_id='region', component_property='value'),
         Input(component_id='label', component_property='value'),
-        Input(component_id='start_fit', component_property='date'),
-        Input(component_id='end_fit', component_property='date'),
+        Input(component_id='fit_picker', component_property='start_date'),
+        Input(component_id='fit_picker', component_property='end_date'),
         Input(component_id='forecast_periods', component_property='value'),
         Input(component_id='smoothing', component_property='value')
     ]
