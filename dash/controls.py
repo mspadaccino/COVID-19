@@ -79,11 +79,17 @@ def get_trend_controls(df_reg):
             max_date_allowed=pd.to_datetime(df_reg['Italy'].index[-1]),
             date=pd.to_datetime(df_reg['Italy'].index[-1])
         ),
-        dcc.Input(
+        dcc.Slider(
             id='forecast_periods',
+            min=0,
+            max=365,
+            step=1,
             value=90,
-            # type= 'int',
-            placeholder='forecasting period',
+            marks={
+                0: {'label': '0 days', 'style': {'color': '#77b0b1'}},
+                100: {'label': '100', 'style': {'color': '#77b0b1'}},
+                365: {'label': '365', 'style': {'color': '#77b0b1'}}
+                      }
         ),
         dcc.Input(
             id='smoothing',

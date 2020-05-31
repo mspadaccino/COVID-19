@@ -26,7 +26,8 @@ app.layout = html.Div(children=[
         className='row',  # Define the row element
         children=[
             html.Div(
-                className='eight columns div-for-charts bg-grey',
+
+                # className='eight columns div-for-charts bg-grey',
                 children=[
                     html.H1('COVID19 Dashboard'),
                     html.P('''Monitoring SARS-COVID19 desease across Italy and the World'''),
@@ -62,7 +63,6 @@ app.layout = html.Div(children=[
                             )
                         ]
                     ),
-
                 ]
             )  # Define the right element
         ])
