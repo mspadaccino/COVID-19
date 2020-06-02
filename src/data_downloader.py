@@ -91,17 +91,29 @@ def convert_istat(dest):
 
 def get_dataframes(dest, npt_rth=5, smooth=True):
     ############################ loading datasets ####################################################
-    df_naz = pd.read_csv(os.path.join(dest,'dpc-covid19-ita-andamento-nazionale.csv')).drop('stato',1)
+    df_naz = pd.read_csv(
+        'https://raw.githubusercontent.com/pcm-dpc/COVID-19/master/dati-andamento-nazionale/dpc-covid19-ita-andamento-nazionale.csv').drop('stato',1)
+    reg = pd.read_csv(
+        'https://raw.githubusercontent.com/pcm-dpc/COVID-19/master/dati-regioni/dpc-covid19-ita-regioni.csv')
+    prov = pd.read_csv(
+        'https://raw.githubusercontent.com/pcm-dpc/COVID-19/master/dati-province/dpc-covid19-ita-province.csv').drop('stato',1)
+    # df_naz = pd.read_csv(os.path.join(dest,'dpc-covid19-ita-andamento-nazionale.csv')).drop('stato',1)
     print('last available date for Italy data',df_naz['data'].iloc[-1])
-    reg = pd.read_csv(os.path.join(dest,'dpc-covid19-ita-regioni.csv'))
-    prov = pd.read_csv(os.path.join(dest,'dpc-covid19-ita-province.csv')).drop('stato',1)
+    # reg = pd.read_csv(os.path.join(dest,'dpc-covid19-ita-regioni.csv'))
+    # prov = pd.read_csv(os.path.join(dest,'dpc-covid19-ita-province.csv')).drop('stato',1)
     df_naz.index = pd.to_datetime(df_naz.index)
     reg['data'] = pd.to_datetime(reg['data'])
     prov['data'] = pd.to_datetime(prov['data'])
     df_comuni_sett = pd.read_csv(os.path.join(dest, 'df_comuni_sett.csv'))
-    df_world_confirmed = pd.read_csv(os.path.join(dest,'time_series_covid19_confirmed_global.csv'))
-    df_world_deaths = pd.read_csv(os.path.join(dest,'time_series_covid19_deaths_global.csv'))
-    df_world_recovered = pd.read_csv(os.path.join(dest,'time_series_covid19_recovered_global.csv'))
+    # df_world_confirmed = pd.read_csv(os.path.join(dest,'time_series_covid19_confirmed_global.csv'))
+    df_world_confirmed = pd.read_csv(
+        'https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv')
+    df_world_deaths = pd.read_csv(
+        'https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_deaths_global.csv')
+    # df_world_deaths = pd.read_csv(os.path.join(dest,'time_series_covid19_deaths_global.csv'))
+    # df_world_recovered = pd.read_csv(os.path.join(dest,'time_series_covid19_recovered_global.csv'))
+    df_world_recovered = pd.read_csv('https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_recovered_global.csv')
+
     populations = pd.read_csv(os.path.join(dest,'API_SP.POP.TOTL_DS2_en_csv_v2.csv'), skiprows=4, engine='python').set_index('Country Name')['2018']
     ita_populations = pd.read_csv(os.path.join(dest,'popitaregions.csv'))
     df_world_confirmed['pop'] = df_world_confirmed['Country/Region'].map(populations)
