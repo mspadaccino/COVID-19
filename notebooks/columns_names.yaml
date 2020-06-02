@@ -13,8 +13,8 @@ LABELS:
     - casi_testati
 
   extra_data_columns:
-    - Rth_1
-    - Rth_2
+    - Rth
+    - Rth_v2
     - growth_factor
     - deceduti_su_tot
     - deceduti_su_dimessi
