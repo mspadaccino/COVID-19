@@ -16,8 +16,6 @@ def add_extra_features(df_orig):
         if col in df.columns:
             if col == 'totale_casi':
                 df['growth_factor'] = df['totale_casi'].diff() / df['totale_casi'].shift().diff()
-            # if col == 'nuovi_positivi':
-            #     df['growth_factor'] = df['nuovi_positivi'] / df['nuovi_positivi'].diff()
             if col == 'deceduti':
                 df['deceduti_su_tot'] = df['deceduti'] / df['totale_casi']
                 df['deceduti_su_dimessi'] = df['deceduti'] / df['dimessi_guariti']
