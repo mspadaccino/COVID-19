@@ -16,6 +16,8 @@ def add_extra_features(df_orig):
         if col in df.columns:
             if col == 'totale_casi':
                 df['growth_factor'] = df['totale_casi'].diff() / df['totale_casi'].shift().diff()
+            if col == 'totale_positivi':
+                df['terapia_intensiva_su_totale_positivi'] = df['terapia_intensiva'] / df['totale_positivi']
             if col == 'deceduti':
                 df['deceduti_su_tot'] = df['deceduti'] / df['totale_casi']
                 df['deceduti_su_dimessi'] = df['deceduti'] / df['dimessi_guariti']
@@ -32,6 +34,8 @@ def add_extra_features(df_orig):
             df['%daily_'+ col] = df[col].diff()/df[col].shift()
     if 'nuovi_positivi' in df.columns:
         df['nuovi_positivi_su_daily_casi_testati'] = df['nuovi_positivi'] / df['daily_casi_testati']
+        df['nuovi_positivi_su_daily_tamponi'] = df['nuovi_positivi'] / df['daily_tamponi']
+        df['nuovi_positivi_su_daily_terapia_intensiva'] = df['nuovi_positivi'] / df['daily_terapia_intensiva']
         df['daily_deceduti_su_nuovi_positivi@t-20'] = df['daily_deceduti'] / df['nuovi_positivi'].shift(20)
     # if 'terapia_intensiva' in df.columns:
     #     df['deceduti_su_terapia_intensiva@t-20'] = df['deceduti'] / df['terapia_intensiva'].shift(20)
