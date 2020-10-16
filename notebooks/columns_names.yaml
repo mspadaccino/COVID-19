@@ -17,7 +17,7 @@ LABELS:
     - nuovi_positivi_su_daily_terapia_intensiva
     - terapia_intensiva_su_totale_positivi
     - Rth
-    - Rth_v2
+#    - Rth_v2
     - growth_factor
     - deceduti_su_tot
     - deceduti_su_dimessi

@@ -127,8 +127,8 @@ def get_dataframes(dest, npt_rth=5, smooth=True):
     for item in regions.groups:
         df_reg[item] = add_extra_features(regions.get_group(item)).replace((np.inf, np.nan), 0)
     for data in df_reg.keys():
-        df_reg[data]['Rth'] = calculate_Rth(df_reg[data],npt_rth=npt_rth, version=1)
-        df_reg[data]['Rth_v2'] = calculate_Rth(df_reg[data], npt_rth=npt_rth, version=2, smooth=smooth)
+        # df_reg[data]['Rth'] = calculate_Rth(df_reg[data],npt_rth=npt_rth, version=1)
+        df_reg[data]['Rth'] = calculate_Rth(df_reg[data], npt_rth=npt_rth, version=2, smooth=smooth)
     provinces = prov.groupby('sigla_provincia')
     df_prov = pd.DataFrame()
     for item in provinces.groups:
