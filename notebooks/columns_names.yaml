@@ -17,7 +17,8 @@ LABELS:
     - nuovi_positivi_su_daily_terapia_intensiva
     - terapia_intensiva_su_totale_positivi
     - Rth
-#    - Rth_v2
+    - deceduti_con_TI
+    - daily_casi_gravi
     - growth_factor
     - deceduti_su_tot
     - deceduti_su_dimessi
@@ -50,6 +51,7 @@ LABELS:
   trend_labels:
     - nuovi_positivi
     - daily_deceduti
+    - daily_casi_gravi
     - ricoverati_con_sintomi
     - terapia_intensiva
     - totale_ospedalizzati

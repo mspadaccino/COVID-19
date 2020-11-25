@@ -21,6 +21,7 @@ def add_extra_features(df_orig):
             if col == 'deceduti':
                 df['deceduti_su_tot'] = df['deceduti'] / df['totale_casi']
                 df['deceduti_su_dimessi'] = df['deceduti'] / df['dimessi_guariti']
+                df['deceduti_con_TI'] = df['deceduti'] + df['terapia_intensiva']
             if col == 'casi_testati':
                 df['deceduti_su_casi_testati'] = df['deceduti']/df['casi_testati']
                 df['totale_casi_su_casi_testati'] = df['totale_casi']/df['casi_testati']
@@ -32,6 +33,9 @@ def add_extra_features(df_orig):
                 df['casi_testati_su_tamponi'] = df['casi_testati'] / df['tamponi']
             df['daily_'+col] = df[col].diff()
             df['%daily_'+ col] = df[col].diff()/df[col].shift()
+            if col == 'deceduti':
+                df["daily_casi_gravi"] = df['deceduti'].diff() + df['terapia_intensiva'].diff()
+
     if 'nuovi_positivi' in df.columns:
         df['nuovi_positivi_su_daily_casi_testati'] = df['nuovi_positivi'] / df['daily_casi_testati']
         df['nuovi_positivi_su_daily_tamponi'] = df['nuovi_positivi'] / df['daily_tamponi']
@@ -45,6 +49,8 @@ def add_extra_features(df_orig):
     if 'data' in df.columns:
         df['data'] = pd.to_datetime(df['data']).dt.strftime('%m/%d/%Y')
         df = df.set_index('data')
+
+
     return df
 
 def calculate_Rth(data, npt_rth = 5, version=1, smooth=True):
